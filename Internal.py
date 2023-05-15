@@ -37,12 +37,32 @@ class Ui_Inicio_Form(object):
         self.Continuar_pushButton.setText(_translate("Inicio_Form", "Continuar"))
         self.Salir_pushButton.setText(_translate("Inicio_Form", "Salir"))
 
+class Ui_Inicio_Form2(QtWidgets.QWidget):
+    def setupUi(self):
+        self.resize(800,600)
+        self.horizontalLayoutWidget = QtWidgets.QWidget()
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(290, 380, 228, 80))
+        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
+        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.Continuar_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Continuar_pushButton.setObjectName("Continuar_pushButton")
+        self.horizontalLayout.addWidget(self.Continuar_pushButton)
+        self.Salir_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Salir_pushButton.setObjectName("Salir_pushButton")
+        self.horizontalLayout.addWidget(self.Salir_pushButton)
+        #self.Continuar_pushButton.setText(( "Continuar"))
+        #self.Salir_pushButton.setText(("Salir"))
+
+        
+
 
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Inicio_Form = QtWidgets.QWidget()
-    ui = Ui_Inicio_Form()
+    ui = Ui_Inicio_Form2()
     ui.setupUi(Inicio_Form)
     Inicio_Form.show()
     sys.exit(app.exec_())

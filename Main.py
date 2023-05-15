@@ -25,39 +25,50 @@ from Internal import Ui_Inicio_Form
 from MenuPrincipal import Ui_Interal_Form
 from SubVentanaTipoIMG import Ui_ImageType_Form
 from SubVentanaMuestra import Ui_ImageMat_Form
+from SubVentanaSuperficie import Ui_ImageSup_Form
 #from int
 ## Final de Import's del Usario
 class MainWindow(QtWidgets.QWidget):
     def __init__(self, *arg, **kwargs):
         super().__init__(*arg, **kwargs)
+        self.resize(800,600)
+        layout = QtWidgets.QHBoxLayout(self)
+
+        # Creamos un QStackedWidget y lo añadimos al layout
+        self.stacked_widget = QtWidgets.QStackedWidget(self)
+        layout.addWidget(self.stacked_widget)
+
+        # Creamos dos páginas para el QStackedWidget
+        self.page1 = QtWidgets.QWidget()
+        self.page2 = QtWidgets.QWidget()
+        #Importar ventana 
+        self.ui_Inicio_Form = Ui_Inicio_Form()
+        self.ui_Login_Form = Ui_Login_Form()
+        #Configuracion del Layout
+        #self.page1.layout = QtWidgets.QHBoxLayout(self.page1)
+        #self.page1.layout.addWidget(self.ui_Inicio_Form)
+        self.page1.setLayout(self.ui_Inicio_Form)
+
+        #self.page2.layout = QtWidgets.QHBoxLayout(self.page2)
+        #self.page2.layout.add(self.ui_Login_Form)
+        self.page2.setLayout(self.ui_Login_Form)
+
+        #Agregar layout
+        self.stacked_widget.addWidget(self.page1)
+        self.stacked_widget.addWidget(self.page2)
+        #Accion
         
-        """
-        ##venta 1
-        self.ui = Ui_Inicio_Form()
-        self.ui.setupUi(self)
-        """
-        """
-        ##Ventanas 2
-        self.ui = Ui_Login_Form()
-        self.ui.setupUi(self)
-        """
-        """
-        ##Venta 3
-        self.ui = Ui_Interal_Form()
-        self.ui.setupUi(self)
-        """
-        #self.ui = Ui_ImageType_Form()
-        #self.ui.setupUi(self)
+        self.stacked_widget.addWidget(self.ui_Inicio_Form)
+        self.stacked_widget.addWidget(self.ui_Login_Form)
 
-        self.ui = Ui_ImageMat_Form()
-        self.ui.setupUi(self)
-
-        ## Inicio de Codigo de Usario 
         
-        ## Final de Codigo de Usario 
-    ## Inicio de Callbacks de Usario 
+    def show_page1(self):
+        self.stacked_widget.setCurrentIndex(0)
+        print('hola')
 
-    ## Final de Callbacks de Usario 
+    def show_page2(self):
+        self.stacked_widget.setCurrentIndex(1)
+        print('adios')
 
 
 if __name__ == '__main__':
