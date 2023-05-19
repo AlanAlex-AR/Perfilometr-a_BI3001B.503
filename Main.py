@@ -28,42 +28,50 @@ from SubVentanaMuestra import Ui_ImageMat_Form
 from SubVentanaSuperficie import Ui_ImageSup_Form
 #from int
 ## Final de Import's del Usario
-class MainWindow(QtWidgets.QWidget):
+class MainForm(QtWidgets.QMainWindow):
     def __init__(self, *arg, **kwargs):
         super().__init__(*arg, **kwargs)
-        self.resize(800,600)
-        layout = QtWidgets.QHBoxLayout(self)
+        self.setWindowTitle("My App")
+        MainForm.resize(self, 800, 600)
+        # Creamos un QHBoxLayout
+        self.stacked_widget = QtWidgets.QStackedLayout(self)
 
-        # Creamos un QStackedWidget y lo añadimos al layout
-        self.stacked_widget = QtWidgets.QStackedWidget(self)
-        layout.addWidget(self.stacked_widget)
 
         # Creamos dos páginas para el QStackedWidget
         self.page1 = QtWidgets.QWidget()
         self.page2 = QtWidgets.QWidget()
-        #Importar ventana 
-        self.ui_Inicio_Form = Ui_Inicio_Form()
-        self.ui_Login_Form = Ui_Login_Form()
-        #Configuracion del Layout
-        #self.page1.layout = QtWidgets.QHBoxLayout(self.page1)
-        #self.page1.layout.addWidget(self.ui_Inicio_Form)
-        self.page1.setLayout(self.ui_Inicio_Form)
+        self.page3 = QtWidgets.QWidget()
+        #Importar Form
+        self.Form1 = Ui_Inicio_Form()
+        self.Form2 = Ui_Login_Form()
+        self.Form3 = Ui_Interal_Form()
+        #self.Form4 = Ui
+        
+        # SetUp graficos
+        self.Form1.setupUi(self.page1)
+        self.Form2.setupUi(self.page2)
+        self.Form3.setupUi(self.page3)
 
-        #self.page2.layout = QtWidgets.QHBoxLayout(self.page2)
-        #self.page2.layout.add(self.ui_Login_Form)
-        self.page2.setLayout(self.ui_Login_Form)
-
-        #Agregar layout
+        # Agregar al formato
         self.stacked_widget.addWidget(self.page1)
         self.stacked_widget.addWidget(self.page2)
-        #Accion
+        self.stacked_widget.addWidget(self.page3)
         
-        self.stacked_widget.addWidget(self.ui_Inicio_Form)
-        self.stacked_widget.addWidget(self.ui_Login_Form)
+        # Conneciones 
+        self.Form1.Continuar_pushButton.pressed.connect(self.show_Form2)
 
-        
-    def show_page1(self):
+        # Widget inicial 
         self.stacked_widget.setCurrentIndex(0)
+
+        # Ultimo configuración
+        self.widget =QtWidgets.QWidget()
+        self.widget.setLayout(self.stacked_widget)
+        self.setCentralWidget(self.widget)
+
+
+
+    def show_Form2(self):
+        self.stacked_widget.setCurrentIndex(1)
         print('hola')
 
     def show_page2(self):
@@ -71,8 +79,9 @@ class MainWindow(QtWidgets.QWidget):
         print('adios')
 
 
+
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    widget = MainWindow()
-    widget.show()
+    main_form = MainForm()
+    main_form.show()
     sys.exit(app.exec_())
