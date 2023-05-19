@@ -35,53 +35,124 @@ class MainForm(QtWidgets.QMainWindow):
         MainForm.resize(self, 800, 600)
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
-
-
-        # Creamos dos páginas para el QStackedWidget
+        self.stacked_widget2 = QtWidgets.QStackedLayout(self)
+        # Creamos páginas para el QStackedWidget
         self.page1 = QtWidgets.QWidget()
         self.page2 = QtWidgets.QWidget()
         self.page3 = QtWidgets.QWidget()
+        self.page4 = QtWidgets.QWidget()
+        self.page5 = QtWidgets.QWidget()
+        self.page6 = QtWidgets.QWidget()
         #Importar Form
         self.Form1 = Ui_Inicio_Form()
         self.Form2 = Ui_Login_Form()
         self.Form3 = Ui_Interal_Form()
-        #self.Form4 = Ui
+        self.Form4 = Ui_ImageType_Form()
+        self.Form5 = Ui_ImageMat_Form()
+        self.Form6 = Ui_ImageSup_Form()
         
         # SetUp graficos
+            # Ventana principal
         self.Form1.setupUi(self.page1)
         self.Form2.setupUi(self.page2)
         self.Form3.setupUi(self.page3)
+            # Ventana secundario 
+        self.Form4.setupUi(self.page4)
+        self.Form5.setupUi(self.page5)
+        self.Form6.setupUi(self.page6)
 
         # Agregar al formato
+            # Ventana Principal
         self.stacked_widget.addWidget(self.page1)
         self.stacked_widget.addWidget(self.page2)
         self.stacked_widget.addWidget(self.page3)
+            # Ventana Secundaria
+        self.stacked_widget2.addWidget(self.page4)
+        self.stacked_widget2.addWidget(self.page5)
+        self.stacked_widget2.addWidget(self.page6)
         
-        # Conneciones 
-        self.Form1.Continuar_pushButton.pressed.connect(self.show_Form2)
-
-        # Widget inicial 
-        self.stacked_widget.setCurrentIndex(0)
-
         # Ultimo configuración
+            #Ventana principal 
         self.widget =QtWidgets.QWidget()
         self.widget.setLayout(self.stacked_widget)
         self.setCentralWidget(self.widget)
+            #Ventana Secundario
+        self.widget2 =QtWidgets.QWidget()
+        self.widget2.setLayout(self.stacked_widget2)
+        self.widget2.resize(400, 300)
+        #self.setCentralWidget(self.widget2)
+        # Widget inicial 
+        self.stacked_widget.setCurrentIndex(0)
+    
+        # Conneciones y Acciones 
+            # Interacciónes Pagina 1 Ui_Inicio_Form
+        self.Form1.Continuar_pushButton.pressed.connect(self.show_Ui_Login_Form)
+        self.Form1.Salir_pushButton.pressed.connect(self.close)
+            # Interacciónes Pagina 2 Ui_Login_Form
+        self.Form2.Ingresar_pushButton.pressed.connect(self.autenticate)
+        #self.Form2.Registrar_pushButton.pressed.connect()
+            # Interacciones Pagina 3 Ui_Interal_Form
+        self.Form3.ImagenSup_pushButton.pressed.connect(self.show_Ui_ImageType_Form)
+        self.Form3.ImagenLat_pushButton.pressed.connect(self.show_Ui_ImageType_Form)
+            # Interacciones Pagina 4 Ui_ImageType_Form
+        self.Form4.ImagenMues_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
+        self.Form4.ImagenSuperficie_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
+            # Interaccion Pagina 5 Ui_ImageMat_Form
+        self.Form5.pushButton_2.pressed.connect(self.open_file)
+        self.Form5.pushButton.pressed.connect(self.widget2.close)
+            # Interracion pagina 6 Ui_ImageSup_Form
+        self.Form6.pushButton_2.pressed.connect(self.open_file)
+        self.Form6.pushButton.pressed.connect(self.widget2.close)
+
+
+        
 
 
 
-    def show_Form2(self):
+
+
+    def show_Ui_Login_Form(self):
         self.stacked_widget.setCurrentIndex(1)
         print('hola')
 
-    def show_page2(self):
-        self.stacked_widget.setCurrentIndex(1)
+    def autenticate(self):
+        username = self.Form2.Correo_lineEdit.text()
+        password = self.Form2.Contrasena_lineEdit.text()
+
+        if username == 'equipo' and password == 'dinamita':
+            self.Ui_Interal_Form()
+        else:
+            QtWidgets.QMessageBox.information(self, 'Error', 'No se pudo ingresar')
+    def Ui_Interal_Form(self):
+        self.stacked_widget.setCurrentIndex(2)
         print('adios')
+    
+    def show_Ui_ImageType_Form(self):
+        self.stacked_widget2.setCurrentIndex(0)
+        self.widget2.show()
+    def show_Ui_ImageMat_Form(self):
+        self.stacked_widget2.setCurrentIndex(1)
+    def show_Ui_ImageSup_Form(self):
+        self.stacked_widget2.setCurrentIndex(2)
+    def open_file(self):
+        filename, _ = QtWidgets.QFileDialog.getOpenFileName()
+        print(filename)
+
+stylesheet = """
+#Inicio_Form {
+    background-image: url('Webp.net-resizeimage.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
 
+
+"""
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
+    app.setStyleSheet(stylesheet)
     main_form = MainForm()
     main_form.show()
     sys.exit(app.exec_())
