@@ -135,15 +135,15 @@ class MainForm(QtWidgets.QMainWindow):
     def show_Ui_ImageSup_Form(self):
         self.stacked_widget2.setCurrentIndex(2)
     def open_file(self):
-        filename, _ = QtWidgets.QFileDialog.getOpenFileName()
-        print(filename)
+        self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
+        
+        print(self.filename)
 
 stylesheet = """
 #Inicio_Form {
     background-image: url('Webp.net-resizeimage.png');
     background-repeat: no-repeat;
     background-position: center;
-    background-size: cover;
 }
 
 

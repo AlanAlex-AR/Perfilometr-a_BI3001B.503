@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import pyqtgraph as pg
 
 class Ui_Interal_Form(object):
     def setupUi(self, Interal_Form):
@@ -55,7 +55,12 @@ class Ui_Interal_Form(object):
         self.Tiempo_spinBox.setObjectName("Tiempo_spinBox")
         self.verticalLayout_2.addWidget(self.Tiempo_spinBox)
         self.verticalLayout_4.addLayout(self.verticalLayout_2)
-
+        self.Graph_verticalLayoutWidget = QtWidgets.QWidget(Ui_Interal_Form)
+        self.Graph_verticalLayoutWidget.setGeometry(QtCore.QRect(20, 20, 780, 200))
+        self.Graph_verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.Graph_verticalLayout = QtWidgets.QVBoxLayout(self.Graph_verticalLayoutWidget)
+        self.plt = pg.PlotWidget(title = 'Signo vital 1')
+        self.Graph_verticalLayout.addWidget(self.plt)
         self.retranslateUi(Interal_Form)
         QtCore.QMetaObject.connectSlotsByName(Interal_Form)
 

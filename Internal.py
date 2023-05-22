@@ -44,7 +44,7 @@ if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     Inicio_Form = QtWidgets.QWidget()
-    ui = Ui_Inicio_Form2()
+    ui = Ui_Inicio_Form()
     ui.setupUi(Inicio_Form)
     Inicio_Form.show()
     sys.exit(app.exec_())
