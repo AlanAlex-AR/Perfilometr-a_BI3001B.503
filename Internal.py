@@ -9,24 +9,50 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Stylesheet_format import Stylesheet
 
 class Ui_Inicio_Form(object):
     def setupUi(self, Inicio_Form):
         Inicio_Form.setObjectName("Inicio_Form")
-        Inicio_Form.resize(800, 600)
+        Inicio_Form.resize(1440, 900)
+        self.verticalLayoutWidget = QtWidgets.QWidget(Inicio_Form)
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(565,21,306,70))
+        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
+        self.BiotextureX_Label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.BiotextureX_Label.setAlignment(QtCore.Qt.AlignCenter)
+        self.BiotextureX_Label.setGeometry(0,0,306,70)
+        self.BiotextureX_Label.setObjectName("BiotextureX_Label")
+        self.BiotextureX_Label.setStyleSheet(Stylesheet)
+
+        self.horizontalLayoutWidget2 = QtWidgets.QWidget(Inicio_Form)
+        self.horizontalLayoutWidget2.setGeometry(QtCore.QRect(391, 131, 700, 570))
+        self.horizontalLayoutWidget2.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget2)
+        self.horizontalLayout2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout2.setObjectName("horizontalLayout")
+
+
+        self.scene = QtWidgets.QGraphicsScene(0, 0, 660, 560)
+        self.BioTextureX_ImagePath = "BioTexturex (1).png"
+        self.BioTextureX_Image = QtGui.QPixmap(self.BioTextureX_ImagePath)
+        pixmapitem = self.scene.addPixmap(self.BioTextureX_Image)
+        pixmapitem.setPos(0,0)
+        view = QtWidgets.QGraphicsView(self.scene)
+        view.setRenderHint(QtGui.QPainter.Antialiasing)
+        view.setStyleSheet("border: none;")
+        self.horizontalLayout2.addWidget(view)
+        
         self.horizontalLayoutWidget = QtWidgets.QWidget(Inicio_Form)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(290, 380, 228, 80))
+        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(623, 772, 193, 52))
         self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
         self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
         self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.Continuar_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.Continuar_pushButton.setObjectName("Continuar_pushButton")
-        self.horizontalLayout.addWidget(self.Continuar_pushButton)
-        self.Salir_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.Salir_pushButton.setObjectName("Salir_pushButton")
-        self.horizontalLayout.addWidget(self.Salir_pushButton)
+        self.Start_pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
+        self.Start_pushButton.setObjectName("Start_pushButton")
+        self.horizontalLayout.addWidget(self.Start_pushButton)
+        self.Start_pushButton.setStyleSheet(Stylesheet)
 
         self.retranslateUi(Inicio_Form)
         QtCore.QMetaObject.connectSlotsByName(Inicio_Form)
@@ -34,10 +60,8 @@ class Ui_Inicio_Form(object):
     def retranslateUi(self, Inicio_Form):
         _translate = QtCore.QCoreApplication.translate
         Inicio_Form.setWindowTitle(_translate("Inicio_Form", "Form"))
-        self.Continuar_pushButton.setText(_translate("Inicio_Form", "Continuar"))
-        self.Salir_pushButton.setText(_translate("Inicio_Form", "Salir"))
-
-        
+        self.Start_pushButton.setText(_translate("Inicio_Form", "Start"))
+        self.BiotextureX_Label.setText(_translate("Inicio_Form","BioTextureX"))
 
 
 if __name__ == "__main__":

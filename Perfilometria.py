@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 #plt.imshow(thresh,cmap = "gray")
 #plt.show() 
 
-img = cv.imread('IMG_55mm_s_p .jpg')
+img = cv.imread('IMG_3839.jpg')
 assert img is not None, "file could not be read, check with os.path.exists()"
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 ret, thresh = cv.threshold(gray,100,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
