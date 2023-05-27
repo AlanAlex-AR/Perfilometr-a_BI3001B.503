@@ -1,0 +1,7 @@
+import numpy as np
+import cv2 as cv
+from matplotlib import pyplot as plt
+img = cv.imread('IMG_55mm_s_p.jpg')
+
+plt.imshow(img)
+plt.show

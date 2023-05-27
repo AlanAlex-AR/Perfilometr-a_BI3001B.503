@@ -5,13 +5,19 @@ from matplotlib import pyplot as plt
 #plt.imshow(thresh,cmap = "gray")
 #plt.show() 
 
-img = cv.imread('IMG_3839.jpg')
+img = cv.imread('IMG_55mm_s_p .jpg')
+plt.imshow(img)
+plt.show ()
 assert img is not None, "file could not be read, check with os.path.exists()"
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
-ret, thresh = cv.threshold(gray,100,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+#ret, thresh = cv.threshold(gray,100,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+#ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TOZERO) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+#ret, thresh = cv.threshold(gray,100,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TRIANGLE) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)##
 
-plt.imshow(thresh,cmap = "gray")
-plt.show() 
+
+#plt.imshow(thresh,cmap = "gray")
+#plt.show() 
 
 # noise removal
 kernel = np.ones((3,3),np.uint8)
@@ -76,4 +82,7 @@ img[markers == -1] = [255,0,0]
 
 plt.imshow(img)
 plt.title("outline")
-plt.show() 
+plt.show()
+
+
+
