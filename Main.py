@@ -32,7 +32,7 @@ class MainForm(QtWidgets.QMainWindow):
     def __init__(self, *arg, **kwargs):
         super().__init__(*arg, **kwargs)
         self.setWindowTitle("My App")
-        MainForm.resize(self, 800, 600)
+        MainForm.resize(self, 1440, 900)
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
         self.stacked_widget2 = QtWidgets.QStackedLayout(self)
@@ -86,8 +86,7 @@ class MainForm(QtWidgets.QMainWindow):
     
         # Conneciones y Acciones 
             # Interacciónes Pagina 1 Ui_Inicio_Form
-        self.Form1.Continuar_pushButton.pressed.connect(self.show_Ui_Login_Form)
-        self.Form1.Salir_pushButton.pressed.connect(self.close)
+        self.Form1.Start_pushButton.pressed.connect(self.show_Ui_Login_Form)
             # Interacciónes Pagina 2 Ui_Login_Form
         self.Form2.Ingresar_pushButton.pressed.connect(self.autenticate)
         #self.Form2.Registrar_pushButton.pressed.connect()
@@ -139,20 +138,14 @@ class MainForm(QtWidgets.QMainWindow):
         
         print(self.filename)
 
-stylesheet = """
-#Inicio_Form {
-    background-image: url('Webp.net-resizeimage.png');
-    background-repeat: no-repeat;
-    background-position: center;
-}
-
-
-
+page_Format = """       
+#Inicio_Form {background-color: white;}
+#Login_Form {background-color: white;}
 """
 
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
-    app.setStyleSheet(stylesheet)
+    app.setStyleSheet(page_Format)
     main_form = MainForm()
     main_form.show()
     sys.exit(app.exec_())
