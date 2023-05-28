@@ -6,8 +6,16 @@ from matplotlib import pyplot as plt
 #plt.show() 
 
 img = cv.imread('IMG_3839.jpg')
-plt.imshow(img)
-plt.show ()
+
+"""plt. imshow(img)
+plt.show()
+
+fig, ax = plt.subplots()
+plt.hist(img.ravel(),256,[0,256]);
+plt.title("Histograma de la imagen")
+ax.set_xlabel("N° Pixel")
+ax.set_ylabel("Pixel Value")
+plt.show ()"""""
 
 assert img is not None, "file could not be read, check with os.path.exists()"
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
@@ -40,8 +48,7 @@ dist_transform = cv.distanceTransform(opening,cv.DIST_L2,5)
 ret, sure_fg = cv.threshold(dist_transform,0.7*dist_transform.max(),255,0)
 
 plt.imshow(dist_transform,cmap = "gray")
-plt.title("Trasformación de distancia") # calcula la distancia de cada píxel en una imagen a la región de fondo más cercana,
-                                        # asigna a cada píxel un valor que representa la distancia euclidiana entre ese píxel y la región de fondo
+plt.title("Trasformación de distancia") # calcula la distancia de cada píxel en una imagen a la región de fondo más cercana,# asigna a cada píxel un valor que representa la distancia euclidiana entre ese píxel y la región de fondo
 plt.show() 
 
 
