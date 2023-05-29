@@ -1,14 +1,13 @@
 import numpy as np
 import cv2 as cv
+import IM
 from matplotlib import pyplot as plt
 
-#plt.imshow(thresh,cmap = "gray")
-#plt.show() 
 
-<<<<<<< HEAD
-img = cv.imread('IMG_3839.jpg')
 
-"""plt. imshow(img)
+I="L_N_100_0"
+img = IM.lectura(I)
+plt.imshow(img)
 plt.show()
 
 fig, ax = plt.subplots()
@@ -16,13 +15,8 @@ plt.hist(img.ravel(),256,[0,256]);
 plt.title("Histograma de la imagen")
 ax.set_xlabel("N° Pixel")
 ax.set_ylabel("Pixel Value")
-plt.show ()"""""
-
-=======
-img = cv.imread('IMG_55mm_s_p .jpg')
-plt.imshow(img)
 plt.show ()
->>>>>>> c08aa8c750dc89169a57bcd9ab71196931555d8d
+
 assert img is not None, "file could not be read, check with os.path.exists()"
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
