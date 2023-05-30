@@ -5,28 +5,30 @@ from matplotlib import pyplot as plt
 
 
 
-I="L_N_100_0"
-img = IM.lectura(I)
+#I=22
+#img = IM.lectura(I)
+img =  cv.imread("b.JPG")
 plt.imshow(img)
 plt.show()
-
+"""""
 fig, ax = plt.subplots()
 plt.hist(img.ravel(),256,[0,256]);
 plt.title("Histograma de la imagen")
 ax.set_xlabel("N° Pixel")
 ax.set_ylabel("Pixel Value")
-plt.show ()
+#plt.show ()
+"""""
 
 assert img is not None, "file could not be read, check with os.path.exists()"
 gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
 #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
 #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TOZERO) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
-#ret, thresh = cv.threshold(gray,100,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
-ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TRIANGLE) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)##
+ret, thresh = cv.threshold(gray,100,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+#ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TRIANGLE) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)##
 
 
-#plt.imshow(thresh,cmap = "gray")
-#plt.show() 
+plt.imshow(thresh,cmap = "gray")
+plt.show() 
 
 # noise removal
 kernel = np.ones((3,3),np.uint8)
