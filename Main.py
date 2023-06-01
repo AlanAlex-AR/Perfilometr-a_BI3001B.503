@@ -15,6 +15,7 @@
 
 # Inicio de Import's basicos 
 import sys
+import sqlite3
 from PyQt5 import QtCore    # Qtcore    (Importa principales funciones de Qt)
 from PyQt5 import QtWidgets # QtWidget  (Importa nuevos componentes Widgets)
 from PyQt5 import QtGui     # QtGui     (Importa los texturas, texturas, y fuentes des escritura)
@@ -88,7 +89,7 @@ class MainForm(QtWidgets.QMainWindow):
             # Interacciónes Pagina 1 Ui_Inicio_Form
         self.Form1.Start_pushButton.pressed.connect(self.show_Ui_Login_Form)
             # Interacciónes Pagina 2 Ui_Login_Form
-        self.Form2.Ingresar_pushButton.pressed.connect(self.autenticate)
+        self.Form2.SignIn_pushButton.pressed.connect(self.autenticate)
         #self.Form2.Registrar_pushButton.pressed.connect()
             # Interacciones Pagina 3 Ui_Interal_Form
         self.Form3.ImagenSup_pushButton.pressed.connect(self.show_Ui_ImageType_Form)
@@ -115,8 +116,8 @@ class MainForm(QtWidgets.QMainWindow):
         print('hola')
 
     def autenticate(self):
-        username = self.Form2.Correo_lineEdit.text()
-        password = self.Form2.Contrasena_lineEdit.text()
+        username = self.Form2.Email_lineEdit.text()
+        password = self.Form2.password_lineEdit.text()
 
         if username == 'equipo' and password == 'dinamita':
             self.Ui_Interal_Form()
@@ -137,6 +138,20 @@ class MainForm(QtWidgets.QMainWindow):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
         
         print(self.filename)
+    def register(self):
+        conn = sqlite3.connect('user_data.db')
+        conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT NOT NULL,
+                        password TEXT NOT NULL);''')
+
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        conn.commit()
+        conn.close()
+
 
 page_Format = """       
 #Inicio_Form {background-color: white;}

@@ -9,62 +9,86 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Stylesheet_format import Stylesheet
 
 
 class Ui_Login_Form(object):
     def setupUi(self, Login_Form):
         Login_Form.setObjectName("Login_Form")
         Login_Form.resize(800, 600)
-        self.InicioDSesion_label = QtWidgets.QLabel(Login_Form)
-        self.InicioDSesion_label.setGeometry(QtCore.QRect(300, 220, 200, 20))
+        
+        self.Hello_label = QtWidgets.QLabel(Login_Form)
+        self.Hello_label.setGeometry(QtCore.QRect(669, 69, 92, 49))
+        font = QtGui.QFont()
+        self.Hello_label.setObjectName("Hello_label")
+        self.welcomeBake_label = QtWidgets.QLabel(Login_Form)
+        self.welcomeBake_label.setGeometry(669,117,148,30)
+
+        ### SignInGFA_verticalLayoutWidget buttons for login with google facebook and apple 
+            # Vertical Layout
+        self.SignInGFA_verticalLayoutWidget = QtWidgets.QWidget(Login_Form)
+        self.SignInGFA_verticalLayoutWidget.setGeometry(QtCore.QRect(308, 182, 824, 166))
+        self.SignInGFA_verticalLayoutWidget.setObjectName("SignInGFA_verticalLayoutWidget")
+        self.SignInGFA_verticalLayout = QtWidgets.QVBoxLayout(self.SignInGFA_verticalLayoutWidget)
+        self.SignInGFA_verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
+        self.SignInGFA_verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.SignInGFA_verticalLayout.setSpacing(0)
+        self.SignInGFA_verticalLayout.setObjectName("verticalLayout")
+            #Botton definition 
+        self.SignInGoogle_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+        self.SignInGoogle_pushButton.setObjectName("SignInGoogle_pushButton")
+        self.SignInGFA_verticalLayout.addWidget(self.SignInGoogle_pushButton)
+        self.SignInFacebook_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+        self.SignInFacebook_pushButton.setObjectName("SignInFacebook_pushButton")
+        self.SignInGFA_verticalLayout.addWidget(self.SignInFacebook_pushButton)
+        self.SignInApple_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+        self.SignInApple_pushButton.setObjectName("SignInApple_pushButton")
+        self.SignInGFA_verticalLayout.addWidget(self.SignInApple_pushButton)
+            #Botton Stylesheet
+        self.SignInGoogle_pushButton.setStyleSheet(Stylesheet)
+        self.SignInFacebook_pushButton.setStyleSheet(Stylesheet)
+        self.SignInApple_pushButton.setStyleSheet(Stylesheet)
+
+        ### SignInEP_verticalLayoutWidget lineEdites for email and password 
+            #Email_lineEdit
+        self.Email_lineEdit = QtWidgets.QLineEdit(Login_Form)
+        self.Email_lineEdit.setGeometry(QtCore.QRect(309,400,824,36))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(14)
-        self.InicioDSesion_label.setFont(font)
-        self.InicioDSesion_label.setAlignment(QtCore.Qt.AlignCenter)
-        self.InicioDSesion_label.setObjectName("InicioDSesion_label")
-        self.verticalLayoutWidget = QtWidgets.QWidget(Login_Form)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(270, 260, 251, 201))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setSpacing(0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.Correo_lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.Email_lineEdit.setFont(font)
+        self.Email_lineEdit.setText("")
+        self.Email_lineEdit.setReadOnly(False)
+        self.Email_lineEdit.setClearButtonEnabled(False)
+        self.Email_lineEdit.setObjectName("Email_lineEdit")
+            #Password_lineEdit
+        self.password_lineEdit = QtWidgets.QLineEdit(Login_Form)
+        self.password_lineEdit.setGeometry(QtCore.QRect(308,471,824,36))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(14)
-        self.Correo_lineEdit.setFont(font)
-        self.Correo_lineEdit.setText("")
-        self.Correo_lineEdit.setReadOnly(False)
-        self.Correo_lineEdit.setClearButtonEnabled(False)
-        self.Correo_lineEdit.setObjectName("Correo_lineEdit")
-        self.verticalLayout.addWidget(self.Correo_lineEdit)
-        self.Contrasena_lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
+        self.password_lineEdit.setFont(font)
+        self.password_lineEdit.setText("")
+        self.password_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
+        self.password_lineEdit.setReadOnly(False)
+        self.password_lineEdit.setObjectName("password_lineEdit")
+
+        ### SignInPushButton
+        self.SignIn_pushButton = QtWidgets.QPushButton(Login_Form)
+        self.SignIn_pushButton.setGeometry(QtCore.QRect(509,673,466,44))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(14)
-        self.Contrasena_lineEdit.setFont(font)
-        self.Contrasena_lineEdit.setText("")
-        self.Contrasena_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
-        self.Contrasena_lineEdit.setReadOnly(False)
-        self.Contrasena_lineEdit.setObjectName("Contrasena_lineEdit")
-        self.verticalLayout.addWidget(self.Contrasena_lineEdit)
-        self.Ingresar_pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
+        self.SignIn_pushButton.setFont(font)
+        self.SignIn_pushButton.setObjectName("SignIn_pushButton")
+        ## SignUpPushButton
+        self.SignUp_pushButton = QtWidgets.QPushButton(Login_Form)
+        self.SignUp_pushButton.setGeometry(QtCore.QRect(771,854,50,22))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(14)
-        self.Ingresar_pushButton.setFont(font)
-        self.Ingresar_pushButton.setObjectName("Ingresar_pushButton")
-        self.verticalLayout.addWidget(self.Ingresar_pushButton)
-        self.Registrar_pushButton = QtWidgets.QPushButton(self.verticalLayoutWidget)
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        self.Registrar_pushButton.setFont(font)
-        self.Registrar_pushButton.setObjectName("Registrar_pushButton")
-        self.verticalLayout.addWidget(self.Registrar_pushButton)
+        self.SignUp_pushButton.setFont(font)
+        self.SignUp_pushButton.setObjectName("SignUp_pushButton")
 
         self.retranslateUi(Login_Form)
         QtCore.QMetaObject.connectSlotsByName(Login_Form)
@@ -72,11 +96,15 @@ class Ui_Login_Form(object):
     def retranslateUi(self, Login_Form):
         _translate = QtCore.QCoreApplication.translate
         Login_Form.setWindowTitle(_translate("Login_Form", "Form"))
-        self.InicioDSesion_label.setText(_translate("Login_Form", "Inicio de sesion "))
-        self.Correo_lineEdit.setPlaceholderText(_translate("Login_Form", "Correo"))
-        self.Contrasena_lineEdit.setPlaceholderText(_translate("Login_Form", "Contrasena"))
-        self.Ingresar_pushButton.setText(_translate("Login_Form", "Ingresar"))
-        self.Registrar_pushButton.setText(_translate("Login_Form", "Registrar"))
+        self.Hello_label.setText(_translate("Login_Form", "Hello"))
+        self.welcomeBake_label.setText(_translate("Login_Form", "Welcome Back"))
+        self.SignInGoogle_pushButton.setText(_translate("Login_Form", "Sign In With Google"))
+        self.SignInFacebook_pushButton.setText(_translate("Login_Form", "Sign In With Facebook"))
+        self.SignInApple_pushButton.setText(_translate("Login_Form", "Sign In With Apple"))
+        self.Email_lineEdit.setPlaceholderText(_translate("Login_Form", "Enter Your Email"))
+        self.password_lineEdit.setPlaceholderText(_translate("Login_Form", "Enter Your Password"))
+        self.SignIn_pushButton.setText(_translate("Login_Form", "Sign In"))
+        self.SignUp_pushButton.setText(_translate("Login_Form", "Sign Up"))
 
 
 
