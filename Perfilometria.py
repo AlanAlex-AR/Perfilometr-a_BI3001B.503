@@ -4,10 +4,9 @@ import IM
 from matplotlib import pyplot as plt
 
 
-
-#I=22
-#img = IM.lectura(I)
-img =  cv.imread("b.JPG")
+I=32
+img = IM.lectura(I)
+#img =  cv.imread(".JPG")
 plt.imshow(img)
 plt.show()
 """""
@@ -28,6 +27,7 @@ ret, thresh = cv.threshold(gray,100,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_
 
 
 plt.imshow(thresh,cmap = "gray")
+plt.title("Binarización")
 plt.show() 
 
 # noise removal
