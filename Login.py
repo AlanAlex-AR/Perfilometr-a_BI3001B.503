@@ -19,31 +19,28 @@ class Ui_Login_Form(object):
         
         self.Hello_label = QtWidgets.QLabel(Login_Form)
         self.Hello_label.setGeometry(QtCore.QRect(669, 69, 92, 49))
-        font = QtGui.QFont()
         self.Hello_label.setObjectName("Hello_label")
+        self.Hello_label.setStyleSheet(Stylesheet)
         self.welcomeBake_label = QtWidgets.QLabel(Login_Form)
         self.welcomeBake_label.setGeometry(669,117,148,30)
+        self.welcomeBake_label.setObjectName("welcomeBake_label")
+        self.welcomeBake_label.setStyleSheet(Stylesheet)
+
 
         ### SignInGFA_verticalLayoutWidget buttons for login with google facebook and apple 
             # Vertical Layout
-        self.SignInGFA_verticalLayoutWidget = QtWidgets.QWidget(Login_Form)
-        self.SignInGFA_verticalLayoutWidget.setGeometry(QtCore.QRect(308, 182, 824, 166))
-        self.SignInGFA_verticalLayoutWidget.setObjectName("SignInGFA_verticalLayoutWidget")
-        self.SignInGFA_verticalLayout = QtWidgets.QVBoxLayout(self.SignInGFA_verticalLayoutWidget)
-        self.SignInGFA_verticalLayout.setSizeConstraint(QtWidgets.QLayout.SetDefaultConstraint)
-        self.SignInGFA_verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.SignInGFA_verticalLayout.setSpacing(0)
-        self.SignInGFA_verticalLayout.setObjectName("verticalLayout")
             #Botton definition 
-        self.SignInGoogle_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+        self.SignInGoogle_pushButton = QtWidgets.QPushButton(Login_Form)
+        self.SignInGoogle_pushButton.setGeometry(QtCore.QRect(308,182,824,44))
         self.SignInGoogle_pushButton.setObjectName("SignInGoogle_pushButton")
-        self.SignInGFA_verticalLayout.addWidget(self.SignInGoogle_pushButton)
-        self.SignInFacebook_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+
+        self.SignInFacebook_pushButton = QtWidgets.QPushButton(Login_Form)
+        self.SignInFacebook_pushButton.setGeometry(QtCore.QRect(308,238,824,44))
         self.SignInFacebook_pushButton.setObjectName("SignInFacebook_pushButton")
-        self.SignInGFA_verticalLayout.addWidget(self.SignInFacebook_pushButton)
-        self.SignInApple_pushButton = QtWidgets.QPushButton(self.SignInGFA_verticalLayoutWidget)
+        
+        self.SignInApple_pushButton = QtWidgets.QPushButton(Login_Form)
+        self.SignInApple_pushButton.setGeometry(QtCore.QRect(308,294,824,44))
         self.SignInApple_pushButton.setObjectName("SignInApple_pushButton")
-        self.SignInGFA_verticalLayout.addWidget(self.SignInApple_pushButton)
             #Botton Stylesheet
         self.SignInGoogle_pushButton.setStyleSheet(Stylesheet)
         self.SignInFacebook_pushButton.setStyleSheet(Stylesheet)
@@ -53,42 +50,29 @@ class Ui_Login_Form(object):
             #Email_lineEdit
         self.Email_lineEdit = QtWidgets.QLineEdit(Login_Form)
         self.Email_lineEdit.setGeometry(QtCore.QRect(309,400,824,36))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        self.Email_lineEdit.setFont(font)
         self.Email_lineEdit.setText("")
         self.Email_lineEdit.setReadOnly(False)
         self.Email_lineEdit.setClearButtonEnabled(False)
         self.Email_lineEdit.setObjectName("Email_lineEdit")
+        self.Email_lineEdit.setStyleSheet(Stylesheet)
             #Password_lineEdit
         self.password_lineEdit = QtWidgets.QLineEdit(Login_Form)
         self.password_lineEdit.setGeometry(QtCore.QRect(308,471,824,36))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        self.password_lineEdit.setFont(font)
         self.password_lineEdit.setText("")
         self.password_lineEdit.setEchoMode(QtWidgets.QLineEdit.Password)
         self.password_lineEdit.setReadOnly(False)
         self.password_lineEdit.setObjectName("password_lineEdit")
-
+        self.password_lineEdit.setStyleSheet(Stylesheet)
         ### SignInPushButton
         self.SignIn_pushButton = QtWidgets.QPushButton(Login_Form)
         self.SignIn_pushButton.setGeometry(QtCore.QRect(509,673,466,44))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        self.SignIn_pushButton.setFont(font)
         self.SignIn_pushButton.setObjectName("SignIn_pushButton")
+        self.SignIn_pushButton.setStyleSheet(Stylesheet)
         ## SignUpPushButton
         self.SignUp_pushButton = QtWidgets.QPushButton(Login_Form)
         self.SignUp_pushButton.setGeometry(QtCore.QRect(771,854,50,22))
-        font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(14)
-        self.SignUp_pushButton.setFont(font)
         self.SignUp_pushButton.setObjectName("SignUp_pushButton")
+        self.SignUp_pushButton.setStyleSheet(Stylesheet)
 
         self.retranslateUi(Login_Form)
         QtCore.QMetaObject.connectSlotsByName(Login_Form)
@@ -96,7 +80,7 @@ class Ui_Login_Form(object):
     def retranslateUi(self, Login_Form):
         _translate = QtCore.QCoreApplication.translate
         Login_Form.setWindowTitle(_translate("Login_Form", "Form"))
-        self.Hello_label.setText(_translate("Login_Form", "Hello"))
+        self.Hello_label.setText(_translate("Login_Form", "Hello."))
         self.welcomeBake_label.setText(_translate("Login_Form", "Welcome Back"))
         self.SignInGoogle_pushButton.setText(_translate("Login_Form", "Sign In With Google"))
         self.SignInFacebook_pushButton.setText(_translate("Login_Form", "Sign In With Facebook"))

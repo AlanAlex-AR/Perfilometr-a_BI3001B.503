@@ -105,12 +105,6 @@ class MainForm(QtWidgets.QMainWindow):
         self.Form6.pushButton.pressed.connect(self.widget2.close)
 
 
-        
-
-
-
-
-
     def show_Ui_Login_Form(self):
         self.stacked_widget.setCurrentIndex(1)
         print('hola')
