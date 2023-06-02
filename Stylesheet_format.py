@@ -23,6 +23,7 @@ Stylesheet = """
     font-family: "Epilogue";
     font-size: 32px;
     line-height: 48px;
+    
 }
 
 #welcomeBake_label {
@@ -95,5 +96,29 @@ Stylesheet = """
     border: none;
     line-height: 22px;
     color: rgb(0, 189, 214);
+}
+
+#Email_label {
+    color: rgb(23,26,31);
+    font-family: "Epilogue";
+    font-size: 14px;
+    line-height: 22px; 
+    font-weight: bold;
+}
+
+#password_label {
+    color: rgb(23,26,31);
+    font-family: "Epilogue";
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
+}
+
+#dontHaveAccount_label {
+    color: rgb(23,26,31);
+    font-family: "Epilogue";
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: bold;
 }
 """

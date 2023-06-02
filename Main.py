@@ -32,7 +32,7 @@ from SubVentanaSuperficie import Ui_ImageSup_Form
 class MainForm(QtWidgets.QMainWindow):
     def __init__(self, *arg, **kwargs):
         super().__init__(*arg, **kwargs)
-        self.setWindowTitle("My App")
+        self.setWindowTitle("FABIAN ES PUTO")
         MainForm.resize(self, 1440, 900)
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)

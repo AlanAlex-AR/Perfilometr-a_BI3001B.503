@@ -22,11 +22,11 @@ class Ui_Login_Form(object):
         self.Hello_label.setObjectName("Hello_label")
         self.Hello_label.setStyleSheet(Stylesheet)
         self.welcomeBake_label = QtWidgets.QLabel(Login_Form)
-        self.welcomeBake_label.setGeometry(669,117,148,30)
+        self.welcomeBake_label.setGeometry(QtCore.QRect(669,117,148,30))
         self.welcomeBake_label.setObjectName("welcomeBake_label")
         self.welcomeBake_label.setStyleSheet(Stylesheet)
 
-
+    
         ### SignInGFA_verticalLayoutWidget buttons for login with google facebook and apple 
             # Vertical Layout
             #Botton definition 
@@ -48,6 +48,10 @@ class Ui_Login_Form(object):
 
         ### SignInEP_verticalLayoutWidget lineEdites for email and password 
             #Email_lineEdit
+        self.Email_label = QtWidgets.QLabel(Login_Form)
+        self.Email_label.setGeometry(QtCore.QRect(309,380,100,16))
+        self.Email_label.setObjectName("Email_label")
+        self.Email_label.setStyleSheet(Stylesheet)
         self.Email_lineEdit = QtWidgets.QLineEdit(Login_Form)
         self.Email_lineEdit.setGeometry(QtCore.QRect(309,400,824,36))
         self.Email_lineEdit.setText("")
@@ -56,6 +60,10 @@ class Ui_Login_Form(object):
         self.Email_lineEdit.setObjectName("Email_lineEdit")
         self.Email_lineEdit.setStyleSheet(Stylesheet)
             #Password_lineEdit
+        self.password_label = QtWidgets.QLabel(Login_Form)
+        self.password_label.setGeometry(QtCore.QRect(308,451,100,16))
+        self.password_label.setObjectName("password_label")
+        self.password_label.setStyleSheet(Stylesheet)
         self.password_lineEdit = QtWidgets.QLineEdit(Login_Form)
         self.password_lineEdit.setGeometry(QtCore.QRect(308,471,824,36))
         self.password_lineEdit.setText("")
@@ -69,6 +77,10 @@ class Ui_Login_Form(object):
         self.SignIn_pushButton.setObjectName("SignIn_pushButton")
         self.SignIn_pushButton.setStyleSheet(Stylesheet)
         ## SignUpPushButton
+        self.dontHaveAccount_label = QtWidgets.QLabel(Login_Form)
+        self.dontHaveAccount_label.setGeometry(QtCore.QRect(600,854,200,22))
+        self.dontHaveAccount_label.setObjectName("dontHaveAccount_label")
+        self.dontHaveAccount_label.setStyleSheet(Stylesheet)
         self.SignUp_pushButton = QtWidgets.QPushButton(Login_Form)
         self.SignUp_pushButton.setGeometry(QtCore.QRect(771,854,50,22))
         self.SignUp_pushButton.setObjectName("SignUp_pushButton")
@@ -85,9 +97,12 @@ class Ui_Login_Form(object):
         self.SignInGoogle_pushButton.setText(_translate("Login_Form", "Sign In With Google"))
         self.SignInFacebook_pushButton.setText(_translate("Login_Form", "Sign In With Facebook"))
         self.SignInApple_pushButton.setText(_translate("Login_Form", "Sign In With Apple"))
+        self.Email_label.setText(_translate("Login_Form", "Email"))
         self.Email_lineEdit.setPlaceholderText(_translate("Login_Form", "Enter Your Email"))
+        self.password_label.setText(_translate("Login_Form", "Password"))
         self.password_lineEdit.setPlaceholderText(_translate("Login_Form", "Enter Your Password"))
         self.SignIn_pushButton.setText(_translate("Login_Form", "Sign In"))
+        self.dontHaveAccount_label.setText(_translate("Login_Form", "Don't have an account?"))
         self.SignUp_pushButton.setText(_translate("Login_Form", "Sign Up"))
 
 
