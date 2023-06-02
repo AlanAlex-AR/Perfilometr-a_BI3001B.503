@@ -1,6 +1,7 @@
 import numpy as np
 import cv2 as cv
 import IM
+import Contornos_redimension as co
 from matplotlib import pyplot as plt
 
 
@@ -44,7 +45,7 @@ sure_bg = cv.dilate(opening,kernel,iterations=3)
 plt.imshow(sure_bg,cmap = "gray")
 plt.title("sure_bg Dilatación para asegurar el Background")
 plt.show() 
-
+Ais= 
 # Finding sure foreground area
 dist_transform = cv.distanceTransform(opening,cv.DIST_L2,5)
 ret, sure_fg = cv.threshold(dist_transform,0.7*dist_transform.max(),255,0)
