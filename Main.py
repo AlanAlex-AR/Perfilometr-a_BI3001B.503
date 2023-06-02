@@ -27,6 +27,7 @@ from MenuPrincipal import Ui_Interal_Form
 from SubVentanaTipoIMG import Ui_ImageType_Form
 from SubVentanaMuestra import Ui_ImageMat_Form
 from SubVentanaSuperficie import Ui_ImageSup_Form
+from Registro_SignUp import Ui_Register_Form
 #from int
 ## Final de Import's del Usario
 class MainForm(QtWidgets.QMainWindow):
@@ -44,6 +45,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.page4 = QtWidgets.QWidget()
         self.page5 = QtWidgets.QWidget()
         self.page6 = QtWidgets.QWidget()
+        self.page7 = QtWidgets.QWidget()
         #Importar Form
         self.Form1 = Ui_Inicio_Form()
         self.Form2 = Ui_Login_Form()
@@ -51,12 +53,14 @@ class MainForm(QtWidgets.QMainWindow):
         self.Form4 = Ui_ImageType_Form()
         self.Form5 = Ui_ImageMat_Form()
         self.Form6 = Ui_ImageSup_Form()
+        self.Form7 = Ui_Register_Form()
         
         # SetUp graficos
             # Ventana principal
         self.Form1.setupUi(self.page1)
         self.Form2.setupUi(self.page2)
         self.Form3.setupUi(self.page3)
+        self.Form7.setupUi(self.page7)
             # Ventana secundario 
         self.Form4.setupUi(self.page4)
         self.Form5.setupUi(self.page5)
@@ -67,6 +71,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.addWidget(self.page1)
         self.stacked_widget.addWidget(self.page2)
         self.stacked_widget.addWidget(self.page3)
+        self.stacked_widget.addWidget(self.page7)
             # Ventana Secundaria
         self.stacked_widget2.addWidget(self.page4)
         self.stacked_widget2.addWidget(self.page5)
@@ -90,6 +95,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.Form1.Start_pushButton.pressed.connect(self.show_Ui_Login_Form)
             # Interacciónes Pagina 2 Ui_Login_Form
         self.Form2.SignIn_pushButton.pressed.connect(self.autenticate)
+        self.Form2.SignUp_pushButton.pressed.connect(self.show_Ui_Register_Form)
         #self.Form2.Registrar_pushButton.pressed.connect()
             # Interacciones Pagina 3 Ui_Interal_Form
         self.Form3.ImagenSup_pushButton.pressed.connect(self.show_Ui_ImageType_Form)
@@ -104,7 +110,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.Form6.pushButton_2.pressed.connect(self.open_file)
         self.Form6.pushButton.pressed.connect(self.widget2.close)
 
-
+   
     def show_Ui_Login_Form(self):
         self.stacked_widget.setCurrentIndex(1)
         print('hola')
@@ -117,6 +123,9 @@ class MainForm(QtWidgets.QMainWindow):
             self.Ui_Interal_Form()
         else:
             QtWidgets.QMessageBox.information(self, 'Error', 'No se pudo ingresar')
+    def show_Ui_Register_Form(self):
+        self.stacked_widget.setCurrentIndex(3)
+        print('hola')
     def Ui_Interal_Form(self):
         self.stacked_widget.setCurrentIndex(2)
         print('adios')
