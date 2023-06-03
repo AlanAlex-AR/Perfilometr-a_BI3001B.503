@@ -18,12 +18,12 @@ Stylesheet = """
     font-family: Baskerville Old Face;
     font-weight: bold;
 }
+
 #Hello_label {
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 32px;
-    line-height: 48px;
-    
+    line-height: 48px;   
 }
 
 #welcomeBake_label {
@@ -32,6 +32,7 @@ Stylesheet = """
     font-size: 20px;
     line-height: 30px;
 }
+
 #SignInGoogle_pushButton {
     background-color: rgb(78,133, 235); 
     border-radius: 4px; 
@@ -41,6 +42,7 @@ Stylesheet = """
     font-size: 16px;
     line-height: 26px;
 }
+
 #SignInFacebook_pushButton {
     background-color: rgb(69,94, 169); 
     border-radius: 4px; 
@@ -50,6 +52,7 @@ Stylesheet = """
     font-size: 16px;
     line-height: 26px;
 }
+
 #SignInApple_pushButton {
     background-color: rgb(23,26,31); 
     border-radius: 4px; 
@@ -59,7 +62,9 @@ Stylesheet = """
     font-size: 16px;
     line-height: 26px;
 }
-#Email_lineEdit {
+
+#Email_lineEdit, #firstName_lineEdit, #lastName_lineEdit, #confirmPassword_lineEdit, #numberofInvoice_lineEdit, #password_lineEdit
+{
     font-family: "Epilogue";
     font-size: 14px;
     background-color: rgb(243,244,246); 
@@ -68,16 +73,8 @@ Stylesheet = """
     color: rgb(188,193,202);
     line-height: 30px;
 }
-#password_lineEdit {
-    font-family: "Epilogue";
-    font-size: 14px;
-    background-color: rgb(243,244,246); 
-    border-radius: 4px;
-    border-width: 0px;
-    color: rgb(188,193,202);
-    line-height: 30px;
-}
-#SignIn_pushButton {
+
+#SignIn_pushButton, #signUp_pushButton{
     font-family: "Epilogue";  /* Replace with the desired font name */
     font-size: 16px;
     color: white; 
@@ -89,7 +86,7 @@ Stylesheet = """
     line-height: 26px;
 }
 
-#SignUp_pushButton {
+#SignUp_pushButton, #signIn_pushButton, #return_pushButton{
     background-color: white;
     font-size: 14px;
     font-family: "Epilogue";
@@ -98,7 +95,8 @@ Stylesheet = """
     color: rgb(0, 189, 214);
 }
 
-#Email_label {
+#Email_label, #password_label, #firstName_label, #lastName_label, #confirmPassword_label, #numberofInvoice_label
+{
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 14px;
@@ -106,19 +104,18 @@ Stylesheet = """
     font-weight: bold;
 }
 
-#password_label {
+#dontHaveAccount_label, #haveAnAcount_label, #agreeTerms_checkBox {
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 14px;
     line-height: 22px;
-    font-weight: bold;
 }
 
-#dontHaveAccount_label {
+#fillYourProfile_label {
     color: rgb(23,26,31);
     font-family: "Epilogue";
-    font-size: 14px;
-    line-height: 22px;
-    font-weight: bold;
+    font-size: 48px;
+    line-height: 68px;
 }
+
 """
