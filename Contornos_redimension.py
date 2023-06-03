@@ -79,16 +79,18 @@ def Contornos(img):
 
     edged= cv.Canny(gray,30,200)
     contornos, jerarquia = cv.findContours(sure_bg,cv.RETR_CCOMP,cv.CHAIN_APPROX_SIMPLE)
-    cv.drawContours(img,contornos,-1,(255,0,0),2) 
+    cv.drawContours(img,contornos,-1,(255,255,255),2) 
     mask = np.zeros(img.shape, dtype=np.uint8)
 
     for contour in contornos:
         area = cv.contourArea(contour)
         area_min = 10000  # Área mínima del objeto deseado 
         if area_min <= area:
-            cv.drawContours(mask, [contour], -1, 255, -1)
+            cv.drawContours(mask, [contour], 0, (255,255,255), -1)
 
     result = cv.bitwise_and(img, mask)
+    plt.imshow(mask)
+    plt.show()
 
 
 
