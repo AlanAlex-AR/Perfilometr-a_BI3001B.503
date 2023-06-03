@@ -21,14 +21,14 @@ from PyQt5 import QtWidgets # QtWidget  (Importa nuevos componentes Widgets)
 from PyQt5 import QtGui     # QtGui     (Importa los texturas, texturas, y fuentes des escritura)
 
 ## Inicio de Import's del Usario 
-from Login import Ui_Login_Form
-from Internal import Ui_Inicio_Form
-from MenuPrincipal import Ui_Interal_Form
-from SubVentanaTipoIMG import Ui_ImageType_Form
-from SubVentanaMuestra import Ui_ImageMat_Form
-from SubVentanaSuperficie import Ui_ImageSup_Form
-from Registro_SignUp import Ui_Register_Form
-from window_ctrl import control_Funtion
+from PyQt_Windows.Login import Ui_Login_Form
+from PyQt_Windows.Internal import Ui_Inicio_Form
+from PyQt_Windows.MenuPrincipal import Ui_MainW_Form
+from PyQt_Windows.SubVentanaTipoIMG import Ui_ImageType_Form
+from PyQt_Windows.SubVentanaMuestra import Ui_ImageMat_Form
+from PyQt_Windows.SubVentanaSuperficie import Ui_ImageSup_Form
+from PyQt_Windows.Registro_SignUp import Ui_Register_Form
+from PyQt_Windows.window_ctrl import control_Funtion
 #from int
 ## Final de Import's del Usario
 class MainForm(QtWidgets.QMainWindow):
@@ -50,7 +50,7 @@ class MainForm(QtWidgets.QMainWindow):
         #Importar Form
         self.Form1 = Ui_Inicio_Form()
         self.Form2 = Ui_Login_Form()
-        self.Form3 = Ui_Interal_Form()
+        self.Form3 = Ui_MainW_Form()
         self.Form4 = Ui_ImageType_Form()
         self.Form5 = Ui_ImageMat_Form()
         self.Form6 = Ui_ImageSup_Form()
@@ -93,6 +93,52 @@ class MainForm(QtWidgets.QMainWindow):
     
         # Conneciones y Acciones
         control_Funtion(self)
+
+
+
+    def show_Ui_Login_Form(self):
+        self.stacked_widget.setCurrentIndex(1)
+        print('hola')
+
+    def autenticate(self):
+        username = self.Form2.Email_lineEdit.text()
+        password = self.Form2.password_lineEdit.text()
+
+        if username == 'equipo' and password == 'dinamita':
+            self.Ui_Interal_Form()
+        else:
+            QtWidgets.QMessageBox.information(self, 'Error', 'No se pudo ingresar')
+    def show_Ui_Register_Form(self):
+        self.stacked_widget.setCurrentIndex(3)
+        print('hola')
+    def Ui_Interal_Form(self):
+        self.stacked_widget.setCurrentIndex(2)
+        print('adios')
+    
+    def show_Ui_ImageType_Form(self):
+        self.stacked_widget2.setCurrentIndex(0)
+        self.widget2.show()
+    def show_Ui_ImageMat_Form(self):
+        self.stacked_widget2.setCurrentIndex(1)
+    def show_Ui_ImageSup_Form(self):
+        self.stacked_widget2.setCurrentIndex(2)
+    def open_file(self):
+        self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
+        
+        print(self.filename)
+    def register(self):
+        conn = sqlite3.connect('user_data.db')
+        conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                        id INTEGER PRIMARY KEY AUTOINCREMENT,
+                        username TEXT NOT NULL,
+                        password TEXT NOT NULL);''')
+
+        username = input("Enter username: ")
+        password = input("Enter password: ")
+
+        conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+        conn.commit()
+        conn.close()
 
 
    

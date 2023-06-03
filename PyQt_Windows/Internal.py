@@ -34,7 +34,7 @@ class Ui_Inicio_Form(object):
 
 
         self.scene = QtWidgets.QGraphicsScene(0, 0, 660, 560)
-        self.BioTextureX_ImagePath = "BioTexturex (1).png"
+        self.BioTextureX_ImagePath = "PyQt_Images/biotexturex (1).png"
         self.BioTextureX_Image = QtGui.QPixmap(self.BioTextureX_ImagePath)
         pixmapitem = self.scene.addPixmap(self.BioTextureX_Image)
         pixmapitem.setPos(0,0)

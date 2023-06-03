@@ -17,7 +17,7 @@ class Ui_Register_Form(object):
         Register.setObjectName("Register")
         Register.resize(1440, 900)
 
-        self.return_pushButton = QtWidgets.QPushButton(Register,icon = QtGui.QIcon(QtGui.QPixmap("Return_icon.svg")))
+        self.return_pushButton = QtWidgets.QPushButton(Register,icon = QtGui.QIcon(QtGui.QPixmap("PyQt_Images/Return_icon.svg")))
         self.return_pushButton.setGeometry(QtCore.QRect(20, 14, 69, 75))
         self.return_pushButton.setObjectName("return_pushButton")
         self.return_pushButton.setStyleSheet(Stylesheet)

@@ -52,7 +52,7 @@ class Ui_MainW_Form(object):
         self.pushButton.setText(_translate("MainW_Form", "PushButton"))
         self.pushButton_2.setText(_translate("MainW_Form", "PushButton"))
         self.pushButton_3.setText(_translate("MainW_Form", "PushButton"))
-
+    
 
 if __name__ == "__main__":
     import sys
