@@ -19,7 +19,7 @@ Stylesheet = """
     font-weight: bold;
 }
 
-#Hello_label {
+#Hello_label, #reconstructionAnalysis_label{
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 32px;
@@ -86,7 +86,7 @@ Stylesheet = """
     line-height: 26px;
 }
 
-#SignUp_pushButton, #signIn_pushButton, #return_pushButton{
+#SignUp_pushButton, #signIn_pushButton, #return_pushButton, #UpLoad_pushButton, #Home_pushButton, #User_pushButton{
     background-color: white;
     font-size: 14px;
     font-family: "Epilogue";

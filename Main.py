@@ -160,15 +160,11 @@ class MainForm(QtWidgets.QMainWindow):
         print(self.filename)
     
 
-
-   
-
-
-
 page_Format = """       
 #Inicio_Form {background-color: white;}
 #Login_Form {background-color: white;}
 #Register {background-color: white;}
+#MainW_Form {background-color: white;}
 """
 
 if __name__ == '__main__':

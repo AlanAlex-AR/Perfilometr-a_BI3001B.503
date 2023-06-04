@@ -13,7 +13,6 @@ def control_Funtion(self):
     self.Form7.return_pushButton.pressed.connect(self.show_Ui_Login_Form)
     self.Form7.SignUp_pushButton.pressed.connect(self.SignUp_register)
     self.Form7.signIn_pushButton.pressed.connect(self.show_Ui_Login_Form)
-
         # Interacciones Pagina 3 Ui_MainW_Form
 
         # Interacciones Pagina 4 Ui_ImageType_Form
