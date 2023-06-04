@@ -38,6 +38,9 @@ class MainForm(QtWidgets.QMainWindow):
         super().__init__(*arg, **kwargs)
         self.setWindowTitle("FABIAN ES PUTO")
         MainForm.resize(self, 1440, 900)
+        # Control variables
+        self.imageType = None
+
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
         self.stacked_widget2 = QtWidgets.QStackedLayout(self)
@@ -85,7 +88,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.addWidget(self.page8)
         self.stacked_widget.addWidget(self.page9)
             # Ventana Secundaria
-        self.stacked_widget2.addWidget(self.page4)
+        #self.stacked_widget2.addWidget(self.page4)
         self.stacked_widget2.addWidget(self.page5)
         self.stacked_widget2.addWidget(self.page6)
         
@@ -100,8 +103,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.widget2.resize(707, 336)
         #self.setCentralWidget(self.widget2)
         # Widget inicial 
-        self.stacked_widget.setCurrentIndex(5)
-        self.show_Ui_ImageMat_Form()
+        self.stacked_widget.setCurrentIndex(0)
         # Control de Clicks 
         control_Funtion(self)
     
@@ -124,11 +126,10 @@ class MainForm(QtWidgets.QMainWindow):
             Confirm_username, Confirm_password = row
             if username == Confirm_username and password == Confirm_password:
                 self.loginStatus = 1
-                self.Ui_Interal_Form()
+                self.show_Ui_MainW_Form()
         if self.loginStatus != 1:
             QtWidgets.QMessageBox.information(self, 'Error', 'No se pudo ingresar')
         conn.close()
-        
     def show_Ui_Register_Form(self):
         self.stacked_widget.setCurrentIndex(3)
         print('hola')
@@ -154,16 +155,27 @@ class MainForm(QtWidgets.QMainWindow):
         else:
             QtWidgets.QMessageBox.information(self, 'Error', 'Passwords dont match ')
     
-    def Ui_Interal_Form(self):
+    #Ui_MainW_Form Actions
+    def show_Ui_Upload_Form(self):
+        self.stacked_widget.setCurrentIndex(4)
+    def show_Ui_MainW_Form(self):
         self.stacked_widget.setCurrentIndex(2)
         print('adios')
-    
-    def show_Ui_ImageType_Form(self):
+
+    # Ui_Upload_Form Actions
+    def samplePress(self):
+        self.imageType = 1
+        self.show_Ui_imageUpload_Form()
+    def surfacePress(self):
+        self.imageType = 0
+        self.show_Ui_imageUpload_Form() 
+    def show_Ui_imageUpload_Form(self):
+        self.stacked_widget.setCurrentIndex(5)
+    # Ui_imageUpload_Form Actions
+    def show_Ui_ImageMat_Form(self):
         self.stacked_widget2.setCurrentIndex(0)
         self.widget2.show()
-    def show_Ui_ImageMat_Form(self):
-        self.stacked_widget2.setCurrentIndex(1)
-        self.widget2.show()
+    
     def show_Ui_ImageSup_Form(self):
         self.stacked_widget2.setCurrentIndex(2)
         self.widget2.show()

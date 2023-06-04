@@ -14,11 +14,30 @@ def control_Funtion(self):
     self.Form7.SignUp_pushButton.pressed.connect(self.SignUp_register)
     self.Form7.signIn_pushButton.pressed.connect(self.show_Ui_Login_Form)
         # Interacciones Pagina 3 Ui_MainW_Form
+    self.Form3.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
+    self.Form3.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
+    #self.Form3.User_pushButton.pressed.connect()
 
-        # Interacciones Pagina 4 Ui_ImageType_Form
-    self.Form4.ImagenMues_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
-    self.Form4.ImagenSuperficie_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
-            # Interaccion Pagina 5 Ui_ImageMat_Form
+        # Interacciones Pagina 8 Ui_Upload_Form
+    self.Form8.sampleImage_pushButton.pressed.connect(self.samplePress)
+    self.Form8.surfaceImage_pushButton.pressed.connect(self.surfacePress)
+    self.Form8.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
+    self.Form8.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
+    #self.Form8.User_pushButton.pressed.connect()
+        # Interacciones Pagina 9 Ui_imageUpload_Form
+    if self.imageType == 1:
+        self.Form9.topUploadImage_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
+        self.Form9.sideUploadImage_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
+    else:
+        self.Form9.topUploadImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
+        self.Form9.sideUploadImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
+    self.Form9.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
+    self.Form9.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
+    #self.Form9.User_pushButton.pressed.connect()
+        # Interacciones Pagina 5 Ui_ImageMat_Form
+    #self.Form5.upload_pushButton.pressed.connect()
+    self.Form5.exit_pushButton.pressed.connect(self.widget2.close)
+
 
         # Interracion pagina 6 Ui_ImageSup_Form
     self.Form6.pushButton_2.pressed.connect(self.open_file)
