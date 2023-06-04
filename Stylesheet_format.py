@@ -1,6 +1,8 @@
 Stylesheet = """
 
-#Start_pushButton {
+#Start_pushButton, #sampleImage_pushButton, #surfaceImage_pushButton, #topUploadImage_pushButton, #sideUploadImage_pushButton, #exit_pushButton,
+#upload_pushButton
+ {
     color: white; 
     background-color: rgb(0, 189, 214); 
     border-style: outset; 
@@ -19,7 +21,8 @@ Stylesheet = """
     font-weight: bold;
 }
 
-#Hello_label, #reconstructionAnalysis_label{
+#Hello_label, #reconstructionAnalysis_label, #topView_label, #sideView_label
+{
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 32px;
@@ -63,7 +66,8 @@ Stylesheet = """
     line-height: 26px;
 }
 
-#Email_lineEdit, #firstName_lineEdit, #lastName_lineEdit, #confirmPassword_lineEdit, #numberofInvoice_lineEdit, #password_lineEdit
+#Email_lineEdit, #firstName_lineEdit, #lastName_lineEdit, #confirmPassword_lineEdit, #numberofInvoice_lineEdit, #password_lineEdit,
+#IDMues_lineEdit, #Material_lineEdit, #DimMat_lineEdit, #Entrecruz_spinBox
 {
     font-family: "Epilogue";
     font-size: 14px;
@@ -111,11 +115,19 @@ Stylesheet = """
     line-height: 22px;
 }
 
-#fillYourProfile_label {
+#fillYourProfile_label, #selectImage_label, #typeImage_label
+{
     color: rgb(23,26,31);
     font-family: "Epilogue";
     font-size: 48px;
     line-height: 68px;
 }
 
+#IDMues_label, #MaterialMues_label, #Entrecruz_label, #DimMat_label
+{
+    color: rgb(23,26,31);
+    font-family: "Epilogue";
+    font-size: 24px;
+    line-height: 36px;
+}
 """

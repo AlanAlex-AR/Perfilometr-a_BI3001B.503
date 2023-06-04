@@ -19,8 +19,7 @@ def control_Funtion(self):
     self.Form4.ImagenMues_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
     self.Form4.ImagenSuperficie_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
             # Interaccion Pagina 5 Ui_ImageMat_Form
-    self.Form5.pushButton_2.pressed.connect(self.open_file)
-    self.Form5.pushButton.pressed.connect(self.widget2.close)
+
         # Interracion pagina 6 Ui_ImageSup_Form
     self.Form6.pushButton_2.pressed.connect(self.open_file)
     self.Form6.pushButton.pressed.connect(self.widget2.close)

@@ -9,57 +9,66 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from Stylesheet_format import Stylesheet
 
 class Ui_ImageMat_Form(object):
     def setupUi(self, ImageMat_Form):
         ImageMat_Form.setObjectName("ImageMat_Form")
-        ImageMat_Form.resize(400, 300)
-        self.verticalLayoutWidget = QtWidgets.QWidget(ImageMat_Form)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(80, 40, 251, 171))
-        self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
-        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
-        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
-        self.verticalLayout.setObjectName("verticalLayout")
-        self.gridLayout = QtWidgets.QGridLayout()
-        self.gridLayout.setObjectName("gridLayout")
-        self.Material_lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.Material_lineEdit.setObjectName("Material_lineEdit")
-        self.gridLayout.addWidget(self.Material_lineEdit, 1, 1, 1, 1)
-        self.Entrecruz_spinBox = QtWidgets.QSpinBox(self.verticalLayoutWidget)
-        self.Entrecruz_spinBox.setObjectName("Entrecruz_spinBox")
-        self.gridLayout.addWidget(self.Entrecruz_spinBox, 2, 1, 1, 1)
-        self.MaterialMues_label = QtWidgets.QLabel(self.verticalLayoutWidget)
-        self.MaterialMues_label.setObjectName("MaterialMues_label")
-        self.gridLayout.addWidget(self.MaterialMues_label, 1, 0, 1, 1)
-        self.IDMues_lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.IDMues_lineEdit.setObjectName("IDMues_lineEdit")
-        self.gridLayout.addWidget(self.IDMues_lineEdit, 0, 1, 1, 1)
-        self.IDMues_label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        ImageMat_Form.resize(707, 336)
+        
+
+        self.IDMues_label = QtWidgets.QLabel(ImageMat_Form)
+        self.IDMues_label.setGeometry(QtCore.QRect(66,26,165,40))
+        self.IDMues_label.setAlignment(QtCore.Qt.AlignCenter)
         self.IDMues_label.setObjectName("IDMues_label")
-        self.gridLayout.addWidget(self.IDMues_label, 0, 0, 1, 1)
-        self.DimMat_lineEdit = QtWidgets.QLineEdit(self.verticalLayoutWidget)
-        self.DimMat_lineEdit.setObjectName("DimMat_lineEdit")
-        self.gridLayout.addWidget(self.DimMat_lineEdit, 3, 1, 1, 1)
-        self.DimMat_label = QtWidgets.QLabel(self.verticalLayoutWidget)
-        self.DimMat_label.setObjectName("DimMat_label")
-        self.gridLayout.addWidget(self.DimMat_label, 3, 0, 1, 1)
-        self.Entrecruz_label = QtWidgets.QLabel(self.verticalLayoutWidget)
+        self.IDMues_label.setStyleSheet(Stylesheet)
+        self.IDMues_lineEdit = QtWidgets.QLineEdit(ImageMat_Form)
+        self.IDMues_lineEdit.setGeometry(QtCore.QRect(277,26,405,40))
+        self.IDMues_lineEdit.setObjectName("IDMues_lineEdit")
+        self.IDMues_lineEdit.setStyleSheet(Stylesheet)
+        
+        
+        self.MaterialMues_label = QtWidgets.QLabel(ImageMat_Form)
+        self.MaterialMues_label.setGeometry(QtCore.QRect(66,86,165,40))
+        self.MaterialMues_label.setObjectName("MaterialMues_label")
+        self.MaterialMues_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.MaterialMues_label.setStyleSheet(Stylesheet)
+        self.Material_lineEdit = QtWidgets.QLineEdit(ImageMat_Form)
+        self.Material_lineEdit.setGeometry(QtCore.QRect(277,86,405,40))
+        self.Material_lineEdit.setObjectName("Material_lineEdit")
+        self.Material_lineEdit.setStyleSheet(Stylesheet)
+
+        self.Entrecruz_label = QtWidgets.QLabel(ImageMat_Form)
+        self.Entrecruz_label.setGeometry(QtCore.QRect(66,149,165,40))
         self.Entrecruz_label.setObjectName("Entrecruz_label")
-        self.gridLayout.addWidget(self.Entrecruz_label, 2, 0, 1, 1)
-        self.verticalLayout.addLayout(self.gridLayout)
-        self.horizontalLayoutWidget = QtWidgets.QWidget(ImageMat_Form)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(80, 230, 251, 41))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton_2 = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout.addWidget(self.pushButton_2)
-        self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.Entrecruz_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.Entrecruz_label.setStyleSheet(Stylesheet)
+        self.Entrecruz_spinBox = QtWidgets.QSpinBox(ImageMat_Form)
+        self.Entrecruz_spinBox.setGeometry(QtCore.QRect(277,149,165,40))
+        self.Entrecruz_spinBox.setObjectName("Entrecruz_spinBox")
+        self.Entrecruz_spinBox.setStyleSheet(Stylesheet)
+
+
+        self.DimMat_label = QtWidgets.QLabel(ImageMat_Form)
+        self.DimMat_label.setGeometry(QtCore.QRect(66,209,165,40))
+        self.DimMat_label.setObjectName("DimMat_label")
+        self.DimMat_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.DimMat_label.setStyleSheet(Stylesheet)
+        self.DimMat_lineEdit = QtWidgets.QLineEdit(ImageMat_Form)
+        self.DimMat_lineEdit.setGeometry(QtCore.QRect(277,209,165,40))
+        self.DimMat_lineEdit.setObjectName("DimMat_lineEdit")
+        self.DimMat_lineEdit.setStyleSheet(Stylesheet)
+        
+        
+        self.upload_pushButton = QtWidgets.QPushButton(ImageMat_Form)
+        self.upload_pushButton.setGeometry(QtCore.QRect(25,273,257,35))
+        self.upload_pushButton.setObjectName("upload_pushButton")
+        self.upload_pushButton.setStyleSheet(Stylesheet)
+
+        self.exit_pushButton = QtWidgets.QPushButton(ImageMat_Form)
+        self.exit_pushButton.setGeometry(QtCore.QRect(425,273,257,35))
+        self.exit_pushButton.setObjectName("exit_pushButton")
+        self.exit_pushButton.setStyleSheet(Stylesheet)
 
         self.retranslateUi(ImageMat_Form)
         QtCore.QMetaObject.connectSlotsByName(ImageMat_Form)
@@ -67,12 +76,13 @@ class Ui_ImageMat_Form(object):
     def retranslateUi(self, ImageMat_Form):
         _translate = QtCore.QCoreApplication.translate
         ImageMat_Form.setWindowTitle(_translate("ImageMat_Form", "Form"))
-        self.MaterialMues_label.setText(_translate("ImageMat_Form", "Material"))
-        self.IDMues_label.setText(_translate("ImageMat_Form", "ID: Muestra"))
-        self.DimMat_label.setText(_translate("ImageMat_Form", "Dimenciones"))
-        self.Entrecruz_label.setText(_translate("ImageMat_Form", "Entrecruzamiento"))
-        self.pushButton_2.setText(_translate("ImageMat_Form", "Explorar"))
-        self.pushButton.setText(_translate("ImageMat_Form", "Salir"))
+        self.IDMues_label.setText(_translate("ImageMat_Form", "ID:"))
+        self.MaterialMues_label.setText(_translate("ImageMat_Form", "Material:"))
+        self.Entrecruz_label.setText(_translate("ImageMat_Form", "Cross-linking:"))
+        self.DimMat_label.setText(_translate("ImageMat_Form", "Dimentions:"))
+        
+        self.upload_pushButton.setText(_translate("ImageMat_Form", "Upload"))
+        self.exit_pushButton.setText(_translate("ImageMat_Form", "Exit"))
 
 
 if __name__ == "__main__":

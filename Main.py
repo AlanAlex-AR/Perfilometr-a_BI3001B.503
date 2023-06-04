@@ -28,6 +28,8 @@ from PyQt_Windows.SubVentanaTipoIMG import Ui_ImageType_Form
 from PyQt_Windows.SubVentanaMuestra import Ui_ImageMat_Form
 from PyQt_Windows.SubVentanaSuperficie import Ui_ImageSup_Form
 from PyQt_Windows.Registro_SignUp import Ui_Register_Form
+from PyQt_Windows.Upload import Ui_Upload_Form
+from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
 #from int
 ## Final de Import's del Usario
@@ -47,14 +49,19 @@ class MainForm(QtWidgets.QMainWindow):
         self.page5 = QtWidgets.QWidget()
         self.page6 = QtWidgets.QWidget()
         self.page7 = QtWidgets.QWidget()
+        self.page8 = QtWidgets.QWidget()
+        self.page9 = QtWidgets.QWidget()
         #Importar Form
         self.Form1 = Ui_Inicio_Form()
         self.Form2 = Ui_Login_Form()
         self.Form3 = Ui_MainW_Form()
-        self.Form4 = Ui_ImageType_Form()
+        self.Form4 = Ui_ImageType_Form() # Ya no se va utilizar
         self.Form5 = Ui_ImageMat_Form()
         self.Form6 = Ui_ImageSup_Form()
         self.Form7 = Ui_Register_Form()
+        self.Form8 = Ui_Upload_Form()
+        self.Form9 = Ui_imageUpload_Form()
+
         
         # SetUp graficos
             # Ventana principal
@@ -62,6 +69,8 @@ class MainForm(QtWidgets.QMainWindow):
         self.Form2.setupUi(self.page2)
         self.Form3.setupUi(self.page3)
         self.Form7.setupUi(self.page7)
+        self.Form8.setupUi(self.page8)
+        self.Form9.setupUi(self.page9)
             # Ventana secundario 
         self.Form4.setupUi(self.page4)
         self.Form5.setupUi(self.page5)
@@ -73,6 +82,8 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.addWidget(self.page2)
         self.stacked_widget.addWidget(self.page3)
         self.stacked_widget.addWidget(self.page7)
+        self.stacked_widget.addWidget(self.page8)
+        self.stacked_widget.addWidget(self.page9)
             # Ventana Secundaria
         self.stacked_widget2.addWidget(self.page4)
         self.stacked_widget2.addWidget(self.page5)
@@ -86,11 +97,11 @@ class MainForm(QtWidgets.QMainWindow):
             #Ventana Secundario
         self.widget2 =QtWidgets.QWidget()
         self.widget2.setLayout(self.stacked_widget2)
-        self.widget2.resize(400, 300)
+        self.widget2.resize(707, 336)
         #self.setCentralWidget(self.widget2)
         # Widget inicial 
-        self.stacked_widget.setCurrentIndex(0)
-    
+        self.stacked_widget.setCurrentIndex(5)
+        self.show_Ui_ImageMat_Form()
         # Control de Clicks 
         control_Funtion(self)
     
@@ -152,8 +163,10 @@ class MainForm(QtWidgets.QMainWindow):
         self.widget2.show()
     def show_Ui_ImageMat_Form(self):
         self.stacked_widget2.setCurrentIndex(1)
+        self.widget2.show()
     def show_Ui_ImageSup_Form(self):
         self.stacked_widget2.setCurrentIndex(2)
+        self.widget2.show()
     def open_file(self):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
         
@@ -161,10 +174,8 @@ class MainForm(QtWidgets.QMainWindow):
     
 
 page_Format = """       
-#Inicio_Form {background-color: white;}
-#Login_Form {background-color: white;}
-#Register {background-color: white;}
-#MainW_Form {background-color: white;}
+#Inicio_Form, #Login_Form, #Register, #MainW_Form, #Upload_Form, #imageUpload_Form, #ImageMat_Form
+{background-color: white;}
 """
 
 if __name__ == '__main__':
