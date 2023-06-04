@@ -91,26 +91,58 @@ class MainForm(QtWidgets.QMainWindow):
         # Widget inicial 
         self.stacked_widget.setCurrentIndex(0)
     
-        # Conneciones y Acciones
+        # Control de Clicks 
         control_Funtion(self)
-
-
-
+    
+    # Ui_Inicio_Form Actions
     def show_Ui_Login_Form(self):
+        self.loginStatus = 0
         self.stacked_widget.setCurrentIndex(1)
         print('hola')
 
-    def autenticate(self):
+    # Ui_Login_Forms Actions
+    def SignIn_Autenticate(self):
         username = self.Form2.Email_lineEdit.text()
         password = self.Form2.password_lineEdit.text()
-
-        if username == 'equipo' and password == 'dinamita':
-            self.Ui_Interal_Form()
-        else:
+        conn = sqlite3.connect('user_data.db')
+        # Retrieve the data from the users table
+        cursor = conn.execute("SELECT username, password FROM users")
+        data = cursor.fetchall()
+        # Compare users
+        for row in data:
+            Confirm_username, Confirm_password = row
+            if username == Confirm_username and password == Confirm_password:
+                self.loginStatus = 1
+                self.Ui_Interal_Form()
+        if self.loginStatus != 1:
             QtWidgets.QMessageBox.information(self, 'Error', 'No se pudo ingresar')
+        conn.close()
+        
     def show_Ui_Register_Form(self):
         self.stacked_widget.setCurrentIndex(3)
         print('hola')
+    def SignInGFA(self):
+        QtWidgets.QMessageBox.information(self, 'Error', 'Login Method Not Available')
+    
+    # Ui_Register_Form Actions
+    def SignUp_register(self):
+        if self.Form7.confirmPassword_lineEdit.text() == self.Form7.password_lineEdit.text():
+            conn = sqlite3.connect('user_data.db')
+            conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            username TEXT NOT NULL,
+                            password TEXT NOT NULL);''')
+
+            username = self.Form7.Email_lineEdit.text()
+            password = self.Form7.confirmPassword_lineEdit.text()
+
+            conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
+            conn.commit()
+            conn.close()
+            self.show_Ui_Login_Form()
+        else:
+            QtWidgets.QMessageBox.information(self, 'Error', 'Passwords dont match ')
+    
     def Ui_Interal_Form(self):
         self.stacked_widget.setCurrentIndex(2)
         print('adios')
@@ -126,19 +158,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
         
         print(self.filename)
-    def register(self):
-        conn = sqlite3.connect('user_data.db')
-        conn.execute('''CREATE TABLE IF NOT EXISTS users (
-                        id INTEGER PRIMARY KEY AUTOINCREMENT,
-                        username TEXT NOT NULL,
-                        password TEXT NOT NULL);''')
-
-        username = input("Enter username: ")
-        password = input("Enter password: ")
-
-        conn.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, password))
-        conn.commit()
-        conn.close()
+    
 
 
    
