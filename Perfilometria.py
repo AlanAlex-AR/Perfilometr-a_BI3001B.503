@@ -84,7 +84,7 @@ def pre_processing (img):
     plt.title("outline")
     plt.show()
 
-    return img
+    return img,
 
 
 

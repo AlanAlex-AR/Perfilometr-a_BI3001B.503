@@ -6,6 +6,7 @@ from matplotlib import pyplot as plt
 
 
 # Obtener las dimensiones de la imagen
+def 
     alto,ancho = np.shape(gray)
     alto1=alto*0.039
     ancho1=ancho*0.04

@@ -6,6 +6,10 @@ from matplotlib import pyplot as plt
 
 def Contornos(img):
 
+    plt.imshow (img)
+    plt.title("Imagen a Analizar")
+    plt.show()
+
     fig, ax = plt.subplots()
     plt.hist(img.ravel(),256,[0,256]);
     plt.title("Histograma de la imagen")

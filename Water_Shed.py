@@ -3,11 +3,11 @@ import cv2 as cv
 from matplotlib import pyplot as plt
 
 
-def Water_shed(img,MM,Ais):
+def Water_shed(img,MM,Ais,T):
     Ais= cv.cvtColor(Ais,cv.COLOR_BGR2GRAY)
     #plt.imshow(Ais, cmap="gray")
     #plt.show()
-    ret, Ais = cv.threshold(Ais,150,255,cv.THRESH_TOZERO) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+    ret, Ais = cv.threshold(Ais,T,255,cv.THRESH_BINARY) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
     plt.imshow(Ais, cmap="gray")
     plt.title("Binarización TOZERO")
     plt.show()
@@ -59,12 +59,9 @@ def Water_shed(img,MM,Ais):
 
     img[markers == 1] = [0,0,0]
 
-    Final= cv.bitwise_and(MM,img)
-    plt.imshow(Final)
-    plt.title("Objetivo Aislado")
-    plt.show()
+    
 
-    return Final
+    return img
 
 
 
