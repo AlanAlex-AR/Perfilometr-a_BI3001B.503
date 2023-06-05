@@ -9,48 +9,54 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
+from Stylesheet_format import Stylesheet
 
 
 class Ui_ImageSup_Form(object):
     def setupUi(self, ImageSup_Form):
         ImageSup_Form.setObjectName("ImageSup_Form")
         ImageSup_Form.resize(400, 300)
-        self.widget = QtWidgets.QWidget(ImageSup_Form)
-        self.widget.setGeometry(QtCore.QRect(70, 70, 249, 129))
-        self.widget.setObjectName("widget")
-        self.gridLayout = QtWidgets.QGridLayout(self.widget)
-        self.gridLayout.setContentsMargins(0, 0, 0, 0)
-        self.gridLayout.setObjectName("gridLayout")
-        self.lineEdit_4 = QtWidgets.QLineEdit(self.widget)
-        self.lineEdit_4.setObjectName("lineEdit_4")
-        self.gridLayout.addWidget(self.lineEdit_4, 2, 1, 1, 1)
-        self.MaterialSup_lineEdit = QtWidgets.QLineEdit(self.widget)
-        self.MaterialSup_lineEdit.setObjectName("MaterialSup_lineEdit")
-        self.gridLayout.addWidget(self.MaterialSup_lineEdit, 1, 1, 1, 1)
-        self.DimMat_label = QtWidgets.QLabel(self.widget)
+        self.IDMues_label = QtWidgets.QLabel(ImageSup_Form)
+        self.IDMues_label.setGeometry(QtCore.QRect(66,26,165,40))
+        self.IDMues_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.IDMues_label.setObjectName("IDMues_label")
+        self.IDMues_label.setStyleSheet(Stylesheet)
+        self.IDMues_lineEdit = QtWidgets.QLineEdit(ImageSup_Form)
+        self.IDMues_lineEdit.setGeometry(QtCore.QRect(277,26,405,40))
+        self.IDMues_lineEdit.setObjectName("IDMues_lineEdit")
+        self.IDMues_lineEdit.setStyleSheet(Stylesheet)
+        
+        
+        self.MaterialMues_label = QtWidgets.QLabel(ImageSup_Form)
+        self.MaterialMues_label.setGeometry(QtCore.QRect(66,86,165,40))
+        self.MaterialMues_label.setObjectName("MaterialMues_label")
+        self.MaterialMues_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.MaterialMues_label.setStyleSheet(Stylesheet)
+        self.Material_lineEdit = QtWidgets.QLineEdit(ImageSup_Form)
+        self.Material_lineEdit.setGeometry(QtCore.QRect(277,86,405,40))
+        self.Material_lineEdit.setObjectName("Material_lineEdit")
+        self.Material_lineEdit.setStyleSheet(Stylesheet)
+
+        self.DimMat_label = QtWidgets.QLabel(ImageSup_Form)
+        self.DimMat_label.setGeometry(QtCore.QRect(66,149,165,40))
         self.DimMat_label.setObjectName("DimMat_label")
-        self.gridLayout.addWidget(self.DimMat_label, 2, 0, 1, 1)
-        self.IDSup_label = QtWidgets.QLabel(self.widget)
-        self.IDSup_label.setObjectName("IDSup_label")
-        self.gridLayout.addWidget(self.IDSup_label, 0, 0, 1, 1)
-        self.MaterialSup_label = QtWidgets.QLabel(self.widget)
-        self.MaterialSup_label.setObjectName("MaterialSup_label")
-        self.gridLayout.addWidget(self.MaterialSup_label, 1, 0, 1, 1)
-        self.IDSup_lineEdit = QtWidgets.QLineEdit(self.widget)
-        self.IDSup_lineEdit.setObjectName("IDSup_lineEdit")
-        self.gridLayout.addWidget(self.IDSup_lineEdit, 0, 1, 1, 1)
-        self.horizontalLayoutWidget = QtWidgets.QWidget(ImageSup_Form)
-        self.horizontalLayoutWidget.setGeometry(QtCore.QRect(70, 230, 251, 41))
-        self.horizontalLayoutWidget.setObjectName("horizontalLayoutWidget")
-        self.horizontalLayout = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget)
-        self.horizontalLayout.setContentsMargins(0, 0, 0, 0)
-        self.horizontalLayout.setObjectName("horizontalLayout")
-        self.pushButton_2 = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton_2.setObjectName("pushButton_2")
-        self.horizontalLayout.addWidget(self.pushButton_2)
-        self.pushButton = QtWidgets.QPushButton(self.horizontalLayoutWidget)
-        self.pushButton.setObjectName("pushButton")
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.DimMat_label.setAlignment(QtCore.Qt.AlignCenter)
+        self.DimMat_label.setStyleSheet(Stylesheet)
+        self.DimMat_lineEdit = QtWidgets.QLineEdit(ImageSup_Form)
+        self.DimMat_lineEdit.setGeometry(QtCore.QRect(277,149,405,40))
+        self.DimMat_lineEdit.setObjectName("DimMat_lineEdit")
+        self.DimMat_lineEdit.setStyleSheet(Stylesheet)
+        
+        
+        self.upload_pushButton = QtWidgets.QPushButton(ImageSup_Form)
+        self.upload_pushButton.setGeometry(QtCore.QRect(25,273,257,35))
+        self.upload_pushButton.setObjectName("upload_pushButton")
+        self.upload_pushButton.setStyleSheet(Stylesheet)
+
+        self.exit_pushButton = QtWidgets.QPushButton(ImageSup_Form)
+        self.exit_pushButton.setGeometry(QtCore.QRect(425,273,257,35))
+        self.exit_pushButton.setObjectName("exit_pushButton")
+        self.exit_pushButton.setStyleSheet(Stylesheet)
 
         self.retranslateUi(ImageSup_Form)
         QtCore.QMetaObject.connectSlotsByName(ImageSup_Form)
@@ -58,11 +64,11 @@ class Ui_ImageSup_Form(object):
     def retranslateUi(self, ImageSup_Form):
         _translate = QtCore.QCoreApplication.translate
         ImageSup_Form.setWindowTitle(_translate("ImageSup_Form", "Form"))
-        self.DimMat_label.setText(_translate("ImageSup_Form", "Dimenciones"))
-        self.IDSup_label.setText(_translate("ImageSup_Form", "ID: Superficie"))
-        self.MaterialSup_label.setText(_translate("ImageSup_Form", "Material"))
-        self.pushButton_2.setText(_translate("ImageSup_Form", "Explorar"))
-        self.pushButton.setText(_translate("ImageSup_Form", "Salir"))
+        self.IDMues_label.setText(_translate("ImageSup_Form", "ID:"))
+        self.MaterialMues_label.setText(_translate("ImageSup_Form", "Material:"))
+        self.DimMat_label.setText(_translate("ImageSup_Form", "Dimentions:"))
+        self.upload_pushButton.setText(_translate("ImageSup_Form", "Upload"))
+        self.exit_pushButton.setText(_translate("ImageSup_Form", "Exit"))
 
 
 if __name__ == "__main__":

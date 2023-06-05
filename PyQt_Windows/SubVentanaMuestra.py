@@ -55,7 +55,7 @@ class Ui_ImageMat_Form(object):
         self.DimMat_label.setAlignment(QtCore.Qt.AlignCenter)
         self.DimMat_label.setStyleSheet(Stylesheet)
         self.DimMat_lineEdit = QtWidgets.QLineEdit(ImageMat_Form)
-        self.DimMat_lineEdit.setGeometry(QtCore.QRect(277,209,165,40))
+        self.DimMat_lineEdit.setGeometry(QtCore.QRect(277,209,405,40))
         self.DimMat_lineEdit.setObjectName("DimMat_lineEdit")
         self.DimMat_lineEdit.setStyleSheet(Stylesheet)
         
