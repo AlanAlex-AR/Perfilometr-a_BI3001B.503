@@ -9,13 +9,18 @@ from matplotlib import pyplot as plt
 def Graph(img):
     gray= cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     alto,ancho = np.shape(gray)
-    Obj=gray[gray> 100]
+    Obj=gray[gray> 50]
     M=min(Obj)
     gray[gray > M] -= M
     print(min(Obj))
-    
+    Factor= 255/(255-M)
+    print(Factor)
+
+
     alto1=alto*0.039
     ancho1=ancho*0.04
+    
+
     gray1=gray*0.2
 
     # Crear una cuadrícula de coordenadas para el objeto 3D
@@ -31,7 +36,7 @@ def Graph(img):
     ax = fig.add_subplot(111, projection='3d')
 
     # Graficar el objeto 3D
-    ax.plot_surface(X, Y, altura, cmap='gray', linewidth=0)
+    ax.plot_surface(X, Y, altura, cmap='rainbow', linewidth=0)
 
     # Configurar los límites de los ejes
     ax.set_xlim([0, ancho1 - 1])
@@ -41,5 +46,19 @@ def Graph(img):
     ax.set_ylabel("Eje y (mm)")
     ax.set_zlabel("Eje z (mm)")
 
+    
+
     # Mostrar el gráfico
     plt.show()
+
+    NORM=gray*Factor
+    # Asegurarse de que los valores estén en el rango correcto [0, 255]
+    NORM = np.clip(NORM, 0, 255)
+
+    # Convertir la imagen de vuelta a tipo entero
+    NORM = NORM.astype(np.uint8)
+ 
+    plt.imshow(NORM,cmap='rainbow')
+    plt.title("Mascara Aislada")
+    plt.show()
+    return NORM

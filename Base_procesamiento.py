@@ -6,9 +6,10 @@ import Contornos_redimension as Cont
 from matplotlib import pyplot as plt
 import Water_Shed as WS
 import Graph 
+import Metrica
 
 #Lectura de la imagen 
-No=31
+No=32
 img = IM.lectura(No)
 Noo=0
 Ref= IM.lectura(Noo)
@@ -28,13 +29,19 @@ plt.title("Objetivo Aislado")
 plt.show()
 
 #Redimensión de la imagen / Gráfico 3D / Métrica 
-Graph.Graph(Final)
+N0= Graph.Graph(Final)
 
 #Cerebro referencia
 print(np.shape(Objetivo))
 Sec= cv.bitwise_and(Ref,Objetivo)
 plt.imshow(Sec)
 plt.show
-Graph.Graph(Sec)
+N1= Graph.Graph(Sec)
+
+#Métrica
+
+Metrica.Met(N0,N1)
+
+
 
 
