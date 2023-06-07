@@ -21,7 +21,7 @@ def Contornos(img):
     gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     #ret, thresh = cv.threshold(gray,60,255,cv.THRESH_BINARY_INV) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
     #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TOZERO) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
-    ret, thresh = cv.threshold(gray,150,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+    ret, thresh = cv.threshold(gray,3,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
     #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TRIANGLE) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)##
 
     plt.imshow(gray,cmap = "gray")
@@ -32,9 +32,9 @@ def Contornos(img):
     kernel = np.ones((3,3),np.uint8)
     opening = cv.morphologyEx(thresh,cv.MORPH_OPEN,kernel, iterations = 3)
 
-    #plt.imshow(opening,cmap = "gray")
-    #plt.title("Reducción de Ruido con tratamiento Morfologico")
-    #plt.show() 
+    plt.imshow(opening,cmap = "gray")
+    plt.title("Reducción de Ruido con tratamiento Morfologico")
+    plt.show() 
 
     # sure background area
     sure_bg = cv.dilate(opening,kernel,iterations=3)
@@ -50,7 +50,7 @@ def Contornos(img):
 
     for contour in contornos:
         area = cv.contourArea(contour)
-        area_min = 10000  # Área mínima del objeto deseado 
+        area_min = 100000  # Área mínima del objeto deseado 
         if area_min <= area:
             cv.drawContours(mask, [contour], 0, (255,255,255), -1)
 

@@ -49,6 +49,7 @@ def Graph(img):
     
 
     # Mostrar el gráfico
+    
     plt.show()
 
     NORM=gray*Factor
@@ -59,6 +60,7 @@ def Graph(img):
     NORM = NORM.astype(np.uint8)
  
     plt.imshow(NORM,cmap='rainbow')
-    plt.title("Mascara Aislada")
+    plt.title("Mapa de calor de alturas/relieves")
+    plt.colorbar()
     plt.show()
     return NORM
