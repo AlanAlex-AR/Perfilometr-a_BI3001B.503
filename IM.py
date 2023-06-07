@@ -5,7 +5,7 @@ import os
 
 def lectura(I):
     count=0
-    Input_carpeta= "C:/Users/fabia/Downloads/Procesamiento de imagenes\Perfilometr-a_BI3001B.503/30-05-2023"
+    Input_carpeta= "C:/Users/fabia/Downloads/Procesamiento de imagenes\Perfilometr-a_BI3001B.503/superior"
     Names= os.listdir(Input_carpeta)
     if type(I)==str:
         for N in Names:

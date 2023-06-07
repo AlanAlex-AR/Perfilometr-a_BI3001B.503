@@ -8,9 +8,10 @@ from matplotlib import pyplot as plt
 import Water_Shed as WS
 import Graph 
 import Metrica
+import Rugosidades
 
 #Lectura de la imagen superior
-No=21
+No=1
 img = IM.lectura(No)
 Noo=0
 Ref= IM.lectura(Noo)
@@ -20,19 +21,21 @@ Ref= IM.lectura(Noo)
 Ais= Cont.Contornos(img)
 
 #Aislamiento de objeto secundario (si aplica)  
-T=100
+T=130
 Objetivo1= WS.Water_shed(img, img, Ais,T)
 Parcial= cv.cvtColor(Ais,cv.COLOR_BGR2GRAY)
 #Obtener 2 treshold
-ret, PP = cv.threshold(Parcial, 0,255,cv.THRESH_BINARY+cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
+ret, PP = cv.threshold(Parcial, 0,255,cv.THRESH_TOZERO+cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
 print(ret)
-ret= ret*1.98
+ret= ret*2.0
 #T=209    #185,208,220
 Final= WS.Water_shed(img, img, Objetivo1,ret)
 #Final,tre= cv.bitwise_and(img,Objetivo)
-plt.imshow(Final)
-plt.title("Objetivo Aislado")
-plt.show()
+#plt.imshow(Final)
+#plt.title("Objetivo Aislado")
+#plt.show()
+
+
 
 #Redimensión de la imagen / Gráfico 3D / Métrica 
 N0= Graph.Graph(Final)
@@ -45,9 +48,12 @@ plt.show
 N1= Graph.Graph(Sec)
 
 #Métrica
-
 IND = np.argwhere(Final > 0)
 Metrica.Met(N0,N1,IND)
+
+#Rugosidades
+Rugosidades.rugo(Final, Sec)
+
 """""
 #Lectura de la imagen lateral 
 No=12

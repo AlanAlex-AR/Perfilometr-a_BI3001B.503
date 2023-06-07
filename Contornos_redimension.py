@@ -6,16 +6,16 @@ from matplotlib import pyplot as plt
 
 def Contornos(img):
 
-    plt.imshow (img)
-    plt.title("Imagen a Analizar")
-    plt.show()
+    #plt.imshow (img)
+    #plt.title("Imagen a Analizar")
+    #plt.show()
 
     fig, ax = plt.subplots()
-    plt.hist(img.ravel(),256,[0,256]);
-    plt.title("Histograma de la imagen")
-    ax.set_xlabel("N° Pixel")
-    ax.set_ylabel("Pixel Value")
-    plt.show ()
+    #plt.hist(img.ravel(),256,[0,256]);
+    #plt.title("Histograma de la imagen")
+    #ax.set_xlabel("N° Pixel")
+    #ax.set_ylabel("Pixel Value")
+    #plt.show ()
 
     assert img is not None, "file could not be read, check with os.path.exists()"
     gray = cv.cvtColor(img,cv.COLOR_BGR2GRAY)
@@ -24,9 +24,9 @@ def Contornos(img):
     ret, thresh = cv.threshold(gray,150,255,cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
     #ret, thresh = cv.threshold(gray,100,255,cv.THRESH_TRIANGLE) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)##
 
-    plt.imshow(gray,cmap = "gray")
-    plt.title("Imagen en escala de grises")
-    plt.show() 
+    #plt.imshow(gray,cmap = "gray")
+    #plt.title("Imagen en escala de grises")
+    #plt.show() 
 
     # noise removal
     kernel = np.ones((3,3),np.uint8)
@@ -56,9 +56,9 @@ def Contornos(img):
 
     result = cv.bitwise_and(img, mask)
 
-    plt.imshow(mask)
-    plt.title("Máscara del objeto")
-    plt.show()
+    #plt.imshow(mask)
+    #plt.title("Máscara del objeto")
+    #plt.show()
 
     plt.imshow(result)
     plt.title("Objeto Aislado")
