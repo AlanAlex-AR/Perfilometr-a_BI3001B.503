@@ -40,8 +40,6 @@ def control_Funtion(self):
 
 
         # Interracion pagina 6 Ui_ImageSup_Form
-    self.Form6.pushButton_2.pressed.connect(self.open_file)
-    self.Form6.pushButton.pressed.connect(self.widget2.close)
 
 
     

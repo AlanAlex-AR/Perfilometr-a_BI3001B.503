@@ -106,6 +106,8 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.setCurrentIndex(0)
         # Control de Clicks 
         control_Funtion(self)
+        self.show_Ui_ImageSup_Form()
+        
     
     # Ui_Inicio_Form Actions
     def show_Ui_Login_Form(self):
@@ -177,7 +179,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.widget2.show()
     
     def show_Ui_ImageSup_Form(self):
-        self.stacked_widget2.setCurrentIndex(2)
+        self.stacked_widget2.setCurrentIndex(1)
         self.widget2.show()
     def open_file(self):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
@@ -186,7 +188,7 @@ class MainForm(QtWidgets.QMainWindow):
     
 
 page_Format = """       
-#Inicio_Form, #Login_Form, #Register, #MainW_Form, #Upload_Form, #imageUpload_Form, #ImageMat_Form
+#Inicio_Form, #Login_Form, #Register, #MainW_Form, #Upload_Form, #imageUpload_Form, #ImageMat_Form, #ImageSup_Form
 {background-color: white;}
 """
 
