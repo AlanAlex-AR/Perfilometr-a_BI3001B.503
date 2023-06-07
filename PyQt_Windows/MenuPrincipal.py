@@ -57,6 +57,26 @@ class Ui_MainW_Form(object):
         self.line_2.setFrameShape(QtWidgets.QFrame.VLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
+        
+        self.table = QtWidgets.QTableWidget(MainW_Form) 
+        self.table.setRowCount(5)
+        self.table.setColumnCount(2)
+        self.table.setGeometry(QtCore.QRect(493, 528, 455, 190))
+        self.table.setObjectName("return_pushButton")
+        #self.horizontalLayout.addWidget(self.table)
+        self.table.setStyleSheet(Stylesheet)
+        self.table.setVerticalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOn)
+        self.table.setHorizontalScrollBarPolicy(QtCore.Qt.ScrollBarAlwaysOff)
+        self.table.setEditTriggers(QtWidgets.QAbstractItemView.NoEditTriggers)  # Disable editing
+        self.table.setSelectionMode(QtWidgets.QAbstractItemView.SingleSelection)  # Enable selecting a single cell
+        self.table.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)  # Enable selecting entire rows
+        
+
+        # Adjust table size to contents
+
+        self.table.horizontalHeader().resizeSection(0, 210)
+        self.table.horizontalHeader().resizeSection(1, 210)
+
 
         self.retranslateUi(MainW_Form)
         QtCore.QMetaObject.connectSlotsByName(MainW_Form)

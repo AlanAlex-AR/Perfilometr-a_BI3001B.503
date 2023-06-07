@@ -61,6 +61,11 @@ class Ui_Upload_Form(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
 
+        self.Analisis_pushButton = QtWidgets.QPushButton(Upload_Form)
+        self.Analisis_pushButton.setGeometry(QtCore.QRect(1227,726,127,58))
+        self.Analisis_pushButton.setObjectName("SignIn_pushButton")
+        self.Analisis_pushButton.setStyleSheet(Stylesheet)
+
 
         self.retranslateUi(Upload_Form)
         QtCore.QMetaObject.connectSlotsByName(Upload_Form)
@@ -75,6 +80,7 @@ class Ui_Upload_Form(object):
         self.UpLoad_pushButton.setText(_translate("Upload_Form", ""))
         self.Home_pushButton.setText(_translate("Upload_Form", ""))
         self.User_pushButton.setText(_translate("Upload_Form", ""))
+        self.Analisis_pushButton.setText(_translate("Upload_Form", "Start Analisis"))
     
 
 if __name__ == "__main__":

@@ -23,6 +23,7 @@ def control_Funtion(self):
     self.Form8.surfaceImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
     self.Form8.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     self.Form8.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
+    self.Form8.Analisis_pushButton.pressed.connect(self.StartAnalisis)
     #self.Form8.User_pushButton.pressed.connect()
 
         # Interacciones Pagina 5 y 6 Ui_ImageMat_Form Ui_ImageSup_Form
@@ -35,6 +36,7 @@ def control_Funtion(self):
     self.Form9.sideUploadImage_pushButton.pressed.connect(self.control_imageside)
     self.Form9.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     self.Form9.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
+    self.Form9.Continue_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     #self.Form9.User_pushButton.pressed.connect()
         # Interacciones Pagina 5 Ui_ImageMat_Form
     #self.Form5.upload_pushButton.pressed.connect()

@@ -114,6 +114,10 @@ class Ui_imageUpload_Form(object):
         
         self.horizontalLayout3.addWidget(view2)
 
+        self.Continue_pushButton = QtWidgets.QPushButton(imageUpload_Form)
+        self.Continue_pushButton.setGeometry(QtCore.QRect(1227,726,127,58))
+        self.Continue_pushButton.setObjectName("SignIn_pushButton")
+        self.Continue_pushButton.setStyleSheet(Stylesheet)
 
         self.retranslateUi(imageUpload_Form)
         QtCore.QMetaObject.connectSlotsByName(imageUpload_Form)
@@ -130,6 +134,7 @@ class Ui_imageUpload_Form(object):
         self.UpLoad_pushButton.setText(_translate("imageUpload_Form", ""))
         self.Home_pushButton.setText(_translate("imageUpload_Form", ""))
         self.User_pushButton.setText(_translate("imageUpload_Form", ""))
+        self.Continue_pushButton.setText(_translate("imageUpload_Form", "Continue"))
     
 
 if __name__ == "__main__":

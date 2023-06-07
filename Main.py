@@ -40,7 +40,7 @@ class MainForm(QtWidgets.QMainWindow):
         MainForm.resize(self, 1440, 900)
         # Control variables
         self.imageType = None
-        self.names = ["","","",""]
+        self.names = ["","","","",""]
         self.case = None
         self.imageangle = None
 
@@ -186,8 +186,6 @@ class MainForm(QtWidgets.QMainWindow):
     def update_image(self):
         if self.case == 1:
             if self.Form9.pixmapitem is not None:
-                self.Form9.scene.removeItem(self.Form9.pixmapitem)
-                self.Form9.scene2.removeItem(self.Form9.pixmapitem)
                 if self.imageType == 1:
                     self.new_image_path = self.names[0]
                     self.imagesettop()
@@ -195,33 +193,37 @@ class MainForm(QtWidgets.QMainWindow):
                     self.new_image_path = self.names[2]
                     self.imagesettop()
                 #Parte 2 
-                self.Form9.scene2.removeItem(self.Form9.pixmapitem2)
+                
                 if self.imageType == 1:
                     self.new_image_path = self.names[1]
                     self.imagesetside()
                 else:
                     self.new_image_path = self.names[3]
                     self.imagesetside()
+                    
 
         else:
             if self.imageangle == 1:
-                self.Form9.scene.removeItem(self.Form9.pixmapitem)
-                self.new_image_path = self.file_name
+                print(self.file_name)
+                self.new_image_path = self.names[4]
+                print(self.file_name)
+                print(self.new_image_path)
                 self.imagesettop()
             else:
-                self.Form9.scene.removeItem(self.Form9.pixmapitem2)
-                self.new_image_path = self.file_name
+                self.new_image_path = self.names[4]
                 self.imagesetside()
-
-
             
     def imagesettop(self):
+        self.Form9.scene.removeItem(self.Form9.pixmapitem)
         new_image = QtGui.QPixmap(self.new_image_path)
+        print(self.new_image_path)
         self.Form9.scene.setSceneRect(0, 0, self.Form9.horizontalLayoutWidget2.width(), self.Form9.horizontalLayoutWidget2.height())
         self.Form9.pixmapitem = self.Form9.scene.addPixmap(new_image.scaled(self.Form9.scene.sceneRect().size().toSize()))
         self.Form9.pixmapitem.setPos(0, 0)
     def imagesetside(self):
+        self.Form9.scene2.removeItem(self.Form9.pixmapitem2)
         new_image = QtGui.QPixmap(self.new_image_path)
+        print(self.new_image_path)
         self.Form9.scene2.setSceneRect(0, 0, self.Form9.horizontalLayoutWidget3.width(), self.Form9.horizontalLayoutWidget3.height())
         self.Form9.pixmapitem2 = self.Form9.scene2.addPixmap(new_image.scaled(self.Form9.scene2.sceneRect().size().toSize()))
         self.Form9.pixmapitem2.setPos(0, 0)
@@ -231,23 +233,25 @@ class MainForm(QtWidgets.QMainWindow):
         self.imageangle = 1
         if self.imageType == 1:
             self.open_file()
-            self.names[0] = self.file_name
+            self.names[0] = self.names[4]
         else:
             self.open_file()
-            self.names[2] = self.file_name
+            self.names[2] = self.names[4]
     
     def control_imageside(self):
         self.imageangle = 0
         if self.imageType == 1:
             self.open_file()
-            self.names[1] = self.file_name
+            self.names[1] = self.names[4]
         else:
             self.open_file()
-            self.names[3] = self.file_name
+            self.names[3] = self.names[4]
 
 
     def open_file(self):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
+        self.names[4] = self.filename
+        
         if self.filename:
             file_info = QtCore.QFileInfo(self.filename)
             self.file_name = file_info.fileName()
@@ -256,10 +260,16 @@ class MainForm(QtWidgets.QMainWindow):
             print("File Name:", self.file_name)
             print("File Type:", self.file_type)
             self.case = 0
+            print(self.filename)
             self.update_image()
 
         print(self.filename)
     
+    def StartAnalisis(self):
+        if self.names[0] == "" or self.names[1] == "" or self.names[2] == "" or self.names[3] == "":
+            QtWidgets.QMessageBox.information(self, 'Error', 'The Images for the analysis have not been selected ')
+        else:
+            self.show_Ui_MainW_Form()
 
 page_Format = """       
 #Inicio_Form, #Login_Form, #Register, #MainW_Form, #Upload_Form, #imageUpload_Form, #ImageMat_Form, #ImageSup_Form
