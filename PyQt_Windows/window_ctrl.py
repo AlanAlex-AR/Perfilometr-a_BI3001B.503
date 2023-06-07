@@ -19,24 +19,26 @@ def control_Funtion(self):
     #self.Form3.User_pushButton.pressed.connect()
 
         # Interacciones Pagina 8 Ui_Upload_Form
-    self.Form8.sampleImage_pushButton.pressed.connect(self.samplePress)
-    self.Form8.surfaceImage_pushButton.pressed.connect(self.surfacePress)
+    self.Form8.sampleImage_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
+    self.Form8.surfaceImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
     self.Form8.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     self.Form8.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
     #self.Form8.User_pushButton.pressed.connect()
+
+        # Interacciones Pagina 5 y 6 Ui_ImageMat_Form Ui_ImageSup_Form
+    self.Form5.upload_pushButton.pressed.connect(self.show_Ui_imageUpload_Form)
+    self.Form6.upload_pushButton.pressed.connect(self.show_Ui_imageUpload_Form)
+    self.Form5.exit_pushButton.pressed.connect(self.widget2.close)
+    self.Form6.exit_pushButton.pressed.connect(self.widget2.close)
         # Interacciones Pagina 9 Ui_imageUpload_Form
-    if self.imageType == 1:
-        self.Form9.topUploadImage_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
-        self.Form9.sideUploadImage_pushButton.pressed.connect(self.show_Ui_ImageMat_Form)
-    else:
-        self.Form9.topUploadImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
-        self.Form9.sideUploadImage_pushButton.pressed.connect(self.show_Ui_ImageSup_Form)
+    self.Form9.topUploadImage_pushButton.pressed.connect(self.open_file)
+    self.Form9.sideUploadImage_pushButton.pressed.connect(self.open_file)
     self.Form9.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     self.Form9.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
     #self.Form9.User_pushButton.pressed.connect()
         # Interacciones Pagina 5 Ui_ImageMat_Form
     #self.Form5.upload_pushButton.pressed.connect()
-    self.Form5.exit_pushButton.pressed.connect(self.widget2.close)
+ 
 
 
         # Interracion pagina 6 Ui_ImageSup_Form

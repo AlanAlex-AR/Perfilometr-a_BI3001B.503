@@ -106,7 +106,6 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.setCurrentIndex(0)
         # Control de Clicks 
         control_Funtion(self)
-        self.show_Ui_ImageSup_Form()
         
     
     # Ui_Inicio_Form Actions
@@ -165,25 +164,37 @@ class MainForm(QtWidgets.QMainWindow):
         print('adios')
 
     # Ui_Upload_Form Actions
-    def samplePress(self):
-        self.imageType = 1
-        self.show_Ui_imageUpload_Form()
-    def surfacePress(self):
-        self.imageType = 0
-        self.show_Ui_imageUpload_Form() 
-    def show_Ui_imageUpload_Form(self):
-        self.stacked_widget.setCurrentIndex(5)
-    # Ui_imageUpload_Form Actions
     def show_Ui_ImageMat_Form(self):
         self.stacked_widget2.setCurrentIndex(0)
         self.widget2.show()
-    
     def show_Ui_ImageSup_Form(self):
         self.stacked_widget2.setCurrentIndex(1)
         self.widget2.show()
+    # Ui_imageUpload_Form Actions
+    def show_Ui_imageUpload_Form(self):
+        self.widget2.close()
+        self.stacked_widget.setCurrentIndex(5)
+    
+
+    def update_image(self):
+        if self.Form9.pixmapitem is not None:
+            self.Form9.scene.removeItem(self.Form9.pixmapitem)
+            new_image_path = self.filename
+            new_image = QtGui.QPixmap(new_image_path)
+            self.Form9.pixmapitem = self.Form9.scene.addPixmap(new_image)
+            self.Form9.pixmapitem.setPos(0, 0)
+
     def open_file(self):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
-        
+        if self.filename:
+            file_info = QtCore.QFileInfo(self.filename)
+            self.file_name = file_info.fileName()
+            self.file_type = file_info.suffix()
+
+            print("File Name:", self.file_name)
+            print("File Type:", self.file_type)
+            self.update_image()
+
         print(self.filename)
     
 

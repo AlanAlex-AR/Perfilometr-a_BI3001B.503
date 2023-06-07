@@ -45,6 +45,7 @@ class Ui_MainW_Form(object):
         self.User_pushButton.setObjectName("User_pushButton")
         self.User_pushButton.setStyleSheet(Stylesheet)
 
+        
         self.line = QtWidgets.QFrame(MainW_Form)
         self.line.setGeometry(QtCore.QRect(0, 792, 1440, 3))
         self.line.setFrameShape(QtWidgets.QFrame.HLine)

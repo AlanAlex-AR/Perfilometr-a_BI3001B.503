@@ -67,6 +67,33 @@ class Ui_imageUpload_Form(object):
         self.User_pushButton.setObjectName("User_pushButton")
         self.User_pushButton.setStyleSheet(Stylesheet)
 
+        self.line = QtWidgets.QFrame(imageUpload_Form)
+        self.line.setGeometry(QtCore.QRect(0, 792, 1440, 3))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+        
+                                        
+        self.horizontalLayoutWidget2 = QtWidgets.QWidget(imageUpload_Form)
+        self.horizontalLayoutWidget2.setGeometry(QtCore.QRect(213,468, 330,250))
+        self.horizontalLayoutWidget2.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout2 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget2)
+        self.horizontalLayout2.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout2.setObjectName("horizontalLayout")
+        self.scene = QtWidgets.QGraphicsScene(0, 0, 660, 560)
+        
+        self.BioTextureX_ImagePath = "PyQt_Images/BioTexture.svg"
+        self.BioTextureX_Image = QtGui.QPixmap(self.BioTextureX_ImagePath)
+        self.scene.setSceneRect(0, 0, self.horizontalLayoutWidget2.width(), self.horizontalLayoutWidget2.height())
+        self.pixmapitem = self.scene.addPixmap(self.BioTextureX_Image.scaled(self.scene.sceneRect().size().toSize()))
+        self.pixmapitem.setPos(0,0)
+        
+        view = QtWidgets.QGraphicsView(self.scene)
+        view.setRenderHint(QtGui.QPainter.Antialiasing)
+        view.setStyleSheet("border: none;")
+        
+        self.horizontalLayout2.addWidget(view)
+
 
         self.retranslateUi(imageUpload_Form)
         QtCore.QMetaObject.connectSlotsByName(imageUpload_Form)

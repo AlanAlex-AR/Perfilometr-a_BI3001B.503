@@ -47,7 +47,6 @@ class Ui_ImageSup_Form(object):
         self.DimMat_lineEdit.setObjectName("DimMat_lineEdit")
         self.DimMat_lineEdit.setStyleSheet(Stylesheet)
         
-        
         self.upload_pushButton = QtWidgets.QPushButton(ImageSup_Form)
         self.upload_pushButton.setGeometry(QtCore.QRect(25,273,257,35))
         self.upload_pushButton.setObjectName("upload_pushButton")

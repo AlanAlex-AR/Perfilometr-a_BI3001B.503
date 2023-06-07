@@ -55,6 +55,12 @@ class Ui_Upload_Form(object):
         self.User_pushButton.setObjectName("User_pushButton")
         self.User_pushButton.setStyleSheet(Stylesheet)
 
+        self.line = QtWidgets.QFrame(Upload_Form)
+        self.line.setGeometry(QtCore.QRect(0, 792, 1440, 3))
+        self.line.setFrameShape(QtWidgets.QFrame.HLine)
+        self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
+        self.line.setObjectName("line")
+
 
         self.retranslateUi(Upload_Form)
         QtCore.QMetaObject.connectSlotsByName(Upload_Form)
