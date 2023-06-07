@@ -31,8 +31,8 @@ def control_Funtion(self):
     self.Form5.exit_pushButton.pressed.connect(self.widget2.close)
     self.Form6.exit_pushButton.pressed.connect(self.widget2.close)
         # Interacciones Pagina 9 Ui_imageUpload_Form
-    self.Form9.topUploadImage_pushButton.pressed.connect(self.open_file)
-    self.Form9.sideUploadImage_pushButton.pressed.connect(self.open_file)
+    self.Form9.topUploadImage_pushButton.pressed.connect(self.control_imagetop)
+    self.Form9.sideUploadImage_pushButton.pressed.connect(self.control_imageside)
     self.Form9.UpLoad_pushButton.pressed.connect(self.show_Ui_Upload_Form)
     self.Form9.Home_pushButton.pressed.connect(self.show_Ui_MainW_Form)
     #self.Form9.User_pushButton.pressed.connect()

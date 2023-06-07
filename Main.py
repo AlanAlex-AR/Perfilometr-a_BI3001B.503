@@ -40,6 +40,9 @@ class MainForm(QtWidgets.QMainWindow):
         MainForm.resize(self, 1440, 900)
         # Control variables
         self.imageType = None
+        self.names = ["","","",""]
+        self.case = None
+        self.imageangle = None
 
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
@@ -166,23 +169,82 @@ class MainForm(QtWidgets.QMainWindow):
     # Ui_Upload_Form Actions
     def show_Ui_ImageMat_Form(self):
         self.stacked_widget2.setCurrentIndex(0)
+        self.imageType = 1
         self.widget2.show()
     def show_Ui_ImageSup_Form(self):
         self.stacked_widget2.setCurrentIndex(1)
+        self.imageType = 0
         self.widget2.show()
     # Ui_imageUpload_Form Actions
     def show_Ui_imageUpload_Form(self):
         self.widget2.close()
         self.stacked_widget.setCurrentIndex(5)
+        self.case = 1
+        self.update_image()
     
 
     def update_image(self):
-        if self.Form9.pixmapitem is not None:
-            self.Form9.scene.removeItem(self.Form9.pixmapitem)
-            new_image_path = self.filename
-            new_image = QtGui.QPixmap(new_image_path)
-            self.Form9.pixmapitem = self.Form9.scene.addPixmap(new_image)
-            self.Form9.pixmapitem.setPos(0, 0)
+        if self.case == 1:
+            if self.Form9.pixmapitem is not None:
+                self.Form9.scene.removeItem(self.Form9.pixmapitem)
+                self.Form9.scene2.removeItem(self.Form9.pixmapitem)
+                if self.imageType == 1:
+                    self.new_image_path = self.names[0]
+                    self.imagesettop()
+                else:
+                    self.new_image_path = self.names[2]
+                    self.imagesettop()
+                #Parte 2 
+                self.Form9.scene2.removeItem(self.Form9.pixmapitem2)
+                if self.imageType == 1:
+                    self.new_image_path = self.names[1]
+                    self.imagesetside()
+                else:
+                    self.new_image_path = self.names[3]
+                    self.imagesetside()
+
+        else:
+            if self.imageangle == 1:
+                self.Form9.scene.removeItem(self.Form9.pixmapitem)
+                self.new_image_path = self.file_name
+                self.imagesettop()
+            else:
+                self.Form9.scene.removeItem(self.Form9.pixmapitem2)
+                self.new_image_path = self.file_name
+                self.imagesetside()
+
+
+            
+    def imagesettop(self):
+        new_image = QtGui.QPixmap(self.new_image_path)
+        self.Form9.scene.setSceneRect(0, 0, self.Form9.horizontalLayoutWidget2.width(), self.Form9.horizontalLayoutWidget2.height())
+        self.Form9.pixmapitem = self.Form9.scene.addPixmap(new_image.scaled(self.Form9.scene.sceneRect().size().toSize()))
+        self.Form9.pixmapitem.setPos(0, 0)
+    def imagesetside(self):
+        new_image = QtGui.QPixmap(self.new_image_path)
+        self.Form9.scene2.setSceneRect(0, 0, self.Form9.horizontalLayoutWidget3.width(), self.Form9.horizontalLayoutWidget3.height())
+        self.Form9.pixmapitem2 = self.Form9.scene2.addPixmap(new_image.scaled(self.Form9.scene2.sceneRect().size().toSize()))
+        self.Form9.pixmapitem2.setPos(0, 0)
+            
+
+    def control_imagetop(self):
+        self.imageangle = 1
+        if self.imageType == 1:
+            self.open_file()
+            self.names[0] = self.file_name
+        else:
+            self.open_file()
+            self.names[2] = self.file_name
+    
+    def control_imageside(self):
+        self.imageangle = 0
+        if self.imageType == 1:
+            self.open_file()
+            self.names[1] = self.file_name
+        else:
+            self.open_file()
+            self.names[3] = self.file_name
+
 
     def open_file(self):
         self.filename, _ = QtWidgets.QFileDialog.getOpenFileName()
@@ -193,6 +255,7 @@ class MainForm(QtWidgets.QMainWindow):
 
             print("File Name:", self.file_name)
             print("File Type:", self.file_type)
+            self.case = 0
             self.update_image()
 
         print(self.filename)

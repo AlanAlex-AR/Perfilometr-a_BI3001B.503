@@ -73,7 +73,7 @@ class Ui_imageUpload_Form(object):
         self.line.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line.setObjectName("line")
         
-                                        
+        #Primera imagen                             
         self.horizontalLayoutWidget2 = QtWidgets.QWidget(imageUpload_Form)
         self.horizontalLayoutWidget2.setGeometry(QtCore.QRect(213,468, 330,250))
         self.horizontalLayoutWidget2.setObjectName("horizontalLayoutWidget")
@@ -82,7 +82,7 @@ class Ui_imageUpload_Form(object):
         self.horizontalLayout2.setObjectName("horizontalLayout")
         self.scene = QtWidgets.QGraphicsScene(0, 0, 660, 560)
         
-        self.BioTextureX_ImagePath = "PyQt_Images/BioTexture.svg"
+        self.BioTextureX_ImagePath = ""
         self.BioTextureX_Image = QtGui.QPixmap(self.BioTextureX_ImagePath)
         self.scene.setSceneRect(0, 0, self.horizontalLayoutWidget2.width(), self.horizontalLayoutWidget2.height())
         self.pixmapitem = self.scene.addPixmap(self.BioTextureX_Image.scaled(self.scene.sceneRect().size().toSize()))
@@ -93,6 +93,26 @@ class Ui_imageUpload_Form(object):
         view.setStyleSheet("border: none;")
         
         self.horizontalLayout2.addWidget(view)
+        ## Segunda imagen
+        self.horizontalLayoutWidget3 = QtWidgets.QWidget(imageUpload_Form)
+        self.horizontalLayoutWidget3.setGeometry(QtCore.QRect(902,468, 330,250))
+        self.horizontalLayoutWidget3.setObjectName("horizontalLayoutWidget")
+        self.horizontalLayout3 = QtWidgets.QHBoxLayout(self.horizontalLayoutWidget3)
+        self.horizontalLayout3.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout3.setObjectName("horizontalLayout")
+        self.scene2 = QtWidgets.QGraphicsScene(0, 0, 660, 560)
+        
+        self.BioTextureX_ImagePath2 = ""
+        self.BioTextureX_Image2 = QtGui.QPixmap(self.BioTextureX_ImagePath2)
+        self.scene2.setSceneRect(0, 0, self.horizontalLayoutWidget3.width(), self.horizontalLayoutWidget3.height())
+        self.pixmapitem2 = self.scene2.addPixmap(self.BioTextureX_Image2.scaled(self.scene2.sceneRect().size().toSize()))
+        self.pixmapitem2.setPos(0,0)
+        
+        view2 = QtWidgets.QGraphicsView(self.scene2)
+        view2.setRenderHint(QtGui.QPainter.Antialiasing)
+        view2.setStyleSheet("border: none;")
+        
+        self.horizontalLayout3.addWidget(view2)
 
 
         self.retranslateUi(imageUpload_Form)
