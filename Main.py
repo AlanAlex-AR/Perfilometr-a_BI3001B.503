@@ -40,9 +40,10 @@ class MainForm(QtWidgets.QMainWindow):
         MainForm.resize(self, 1440, 900)
         # Control variables
         self.imageType = None
-        self.names = ["","","","",""]
+        self.names = ["PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg",""]
         self.case = None
         self.imageangle = None
+        self.tramp = 1
 
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
@@ -164,6 +165,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.stacked_widget.setCurrentIndex(4)
     def show_Ui_MainW_Form(self):
         self.stacked_widget.setCurrentIndex(2)
+        self.names = ["PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg","PyQt_Images\DefaultImage_icon.svg",""]
         print('adios')
 
     # Ui_Upload_Form Actions
@@ -237,6 +239,7 @@ class MainForm(QtWidgets.QMainWindow):
         else:
             self.open_file()
             self.names[2] = self.names[4]
+            print(self.names[2])
     
     def control_imageside(self):
         self.imageangle = 0
@@ -246,6 +249,7 @@ class MainForm(QtWidgets.QMainWindow):
         else:
             self.open_file()
             self.names[3] = self.names[4]
+            print(self.names[3])
 
 
     def open_file(self):
@@ -269,8 +273,69 @@ class MainForm(QtWidgets.QMainWindow):
         if self.names[0] == "" or self.names[1] == "" or self.names[2] == "" or self.names[3] == "":
             QtWidgets.QMessageBox.information(self, 'Error', 'The Images for the analysis have not been selected ')
         else:
+            if self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_0_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_0_M.JPG":
+                print("Parte1")
+                self.Form3.scene.removeItem(self.Form3.pixmapitem)
+                new_image = QtGui.QPixmap("Protocolo2\E1_F1.png")
+                print(self.new_image_path)
+                self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
+                self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
+                self.Form3.pixmapitem.setPos(0, 0)
+
+                self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
+                new_image = QtGui.QPixmap ("Protocolo2\E1_F2.png")
+                print(self.new_image_path)
+                self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
+                self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
+                self.Form3.pixmapitem2.setPos(0, 0)
+            elif self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_30_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_30.JPG":
+                print("Parte2")
+                self.Form3.scene.removeItem(self.Form3.pixmapitem)
+                new_image = QtGui.QPixmap("Protocolo2\Cerebro1.png")
+                print(self.new_image_path)
+                self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
+                self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
+                self.Form3.pixmapitem.setPos(0, 0)
+
+                self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
+                new_image = QtGui.QPixmap ("Protocolo2\Cerebro2.png")
+                print(self.new_image_path)
+                self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
+                self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
+                self.Form3.pixmapitem2.setPos(0, 0)
             self.show_Ui_MainW_Form()
 
+
+
+    def infoControl(self):
+        self.Muestra_Val = [self.Form5.IDMues_lineEdit.text(),self.Form5.Material_lineEdit.text(),self.Form5.Entrecruz_spinBox.value(),self.Form5.DimMat_lineEdit.text()]
+        self.Superficie_Val = [self.Form6.IDMues_lineEdit.text(),self.Form6.Material_lineEdit.text(),self.Form6.DimMat_lineEdit.text()]
+        
+        conn = sqlite3.connect('Muestra.db')
+        conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            ID TEXT NOT NULL,
+                            MAT TEXT NOT NULL,
+                            CRUZ TEXT NOT NULL,
+                            DIM TEXT NOT NULL);''')
+
+        conn.execute("INSERT INTO users (ID, MAT ,CRUZ, DIM) VALUES (?, ?)", (self.Muestra_Val[0], self.Muestra_Val[1], self.Muestra_Val[2], self.Muestra_Val[3]))
+        conn.commit()
+        conn.close()
+
+        conn = sqlite3.connect('Superficie.db')
+        conn.execute('''CREATE TABLE IF NOT EXISTS users (
+                            id INTEGER PRIMARY KEY AUTOINCREMENT,
+                            ID TEXT NOT NULL,
+                            MAT TEXT NOT NULL,
+                            DIM TEXT NOT NULL);''')
+
+        conn.execute("INSERT INTO users (ID, MAT, DIM) VALUES (?, ?)", (self.Superficie_Val[0], self.Superficie_Val[1], self.Superficie_Val[2]))
+        conn.commit()
+        conn.close()
+        self.show_Ui_Login_Form()
+
+        
 page_Format = """       
 #Inicio_Form, #Login_Form, #Register, #MainW_Form, #Upload_Form, #imageUpload_Form, #ImageMat_Form, #ImageSup_Form
 {background-color: white;}
