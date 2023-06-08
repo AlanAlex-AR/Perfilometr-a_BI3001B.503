@@ -5,20 +5,27 @@ import IM
 from matplotlib import pyplot as plt
 
 
+
 # Obtener las dimensiones de la imagen
 def Graph(img):
     gray= cv.cvtColor(img,cv.COLOR_BGR2GRAY)
     alto,ancho = np.shape(gray)
-    Obj=gray[gray> 50]
+    Obj=gray[gray> 0]
     M=min(Obj)
-    gray[gray > M] -= M
-    print(min(Obj))
-    Factor= 255/(255-M)
+    mean, std_dev = cv.meanStdDev(Obj)
+    Ajuste= np.round(mean-std_dev)
+    print(mean)
+    #gray[gray >M] -= M
+    mask = np.where(gray, 1, 0)
+    gray= gray - (Ajuste * mask)
+
+
+    Factor= 255/(255-Ajuste)
     print(Factor)
 
 
     alto1=alto*0.039
-    ancho1=ancho*0.04
+    ancho1=ancho*0.039
     
 
     gray1=gray*0.2

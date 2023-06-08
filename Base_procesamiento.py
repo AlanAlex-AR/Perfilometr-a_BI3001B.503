@@ -9,12 +9,14 @@ import Water_Shed as WS
 import Graph 
 import Metrica
 import Rugosidades
+import PP_prueba
 
 #Lectura de la imagen superior
-No=1
+No=3
 img = IM.lectura(No)
 Noo=0
 Ref= IM.lectura(Noo)
+Area=2500
 
 
 #Aislamiento del objeto principal 
@@ -49,10 +51,14 @@ N1= Graph.Graph(Sec)
 
 #Métrica
 IND = np.argwhere(Final > 0)
-Metrica.Met(N0,N1,IND)
+N0=Metrica.Met(N0,N1,IND, Final, Sec, Area)
 
 #Rugosidades
-Rugosidades.rugo(Final, Sec)
+#Rugosidades.rugo(Final, Sec)
+#PP_prueba.patterns(N0,N1,IND)
+
+
+
 
 """""
 #Lectura de la imagen lateral 
