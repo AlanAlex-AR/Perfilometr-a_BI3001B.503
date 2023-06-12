@@ -31,7 +31,8 @@ from PyQt_Windows.Registro_SignUp import Ui_Register_Form
 from PyQt_Windows.Upload import Ui_Upload_Form
 from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
-from Base_procesamiento import 
+from Base_procesamiento import process
+Area= 2500
 #from int
 
 ## Final de Import's del Usario
@@ -311,6 +312,7 @@ class MainForm(QtWidgets.QMainWindow):
             #self.Procesamiento()
             #self.proccesamiento = pokemon()
             #self.procesamiento.sec
+            
             # imagen 1 
             self.Form3.scene.removeItem(self.Form3.pixmapitem)
             new_image = QtGui.QPixmap("Resultados/analisis1F.jpg")
