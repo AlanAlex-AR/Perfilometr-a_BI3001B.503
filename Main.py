@@ -31,6 +31,7 @@ from PyQt_Windows.Registro_SignUp import Ui_Register_Form
 from PyQt_Windows.Upload import Ui_Upload_Form
 from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
+from Base_procesamiento import 
 #from int
 ## Final de Import's del Usario
 class MainForm(QtWidgets.QMainWindow):
@@ -44,6 +45,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.case = None
         self.imageangle = None
         self.tramp = 1
+        self.fabian = 0
 
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
@@ -270,40 +272,61 @@ class MainForm(QtWidgets.QMainWindow):
         print(self.filename)
     
     def StartAnalisis(self):
-        if self.names[0] == "" or self.names[1] == "" or self.names[2] == "" or self.names[3] == "":
-            QtWidgets.QMessageBox.information(self, 'Error', 'The Images for the analysis have not been selected ')
+        if self.fabian ==1:
+            if self.names[0] == "" or self.names[1] == "" or self.names[2] == "" or self.names[3] == "":
+                QtWidgets.QMessageBox.information(self, 'Error', 'The Images for the analysis have not been selected ')
+            else:
+                if self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_0_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_0_M.JPG":
+                    print("Parte1")
+                    self.Form3.scene.removeItem(self.Form3.pixmapitem)
+                    new_image = QtGui.QPixmap("Protocolo2\E1_F1.png")
+                    print(self.new_image_path)
+                    self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
+                    self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
+                    self.Form3.pixmapitem.setPos(0, 0)
+
+                    self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
+                    new_image = QtGui.QPixmap ("Protocolo2\E1_F2.png")
+                    print(self.new_image_path)
+                    self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
+                    self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
+                    self.Form3.pixmapitem2.setPos(0, 0)
+                elif self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_30_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_30.JPG":
+                    print("Parte2")
+                    self.Form3.scene.removeItem(self.Form3.pixmapitem)
+                    new_image = QtGui.QPixmap("Protocolo2\Cerebro1.png")
+                    print(self.new_image_path)
+                    self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
+                    self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
+                    self.Form3.pixmapitem.setPos(0, 0)
+
+                    self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
+                    new_image = QtGui.QPixmap ("Protocolo2\Cerebro2.png")
+                    print(self.new_image_path)
+                    self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
+                    self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
+                    self.Form3.pixmapitem2.setPos(0, 0)
         else:
-            if self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_0_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_0_M.JPG":
-                print("Parte1")
-                self.Form3.scene.removeItem(self.Form3.pixmapitem)
-                new_image = QtGui.QPixmap("Protocolo2\E1_F1.png")
-                print(self.new_image_path)
-                self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
-                self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
-                self.Form3.pixmapitem.setPos(0, 0)
+            #self.Procesamiento()
+            #self.proccesamiento = pokemon()
+            #self.procesamiento.sec
+            # imagen 1 
+            self.Form3.scene.removeItem(self.Form3.pixmapitem)
+            new_image = QtGui.QPixmap("Resultados/analisis1F.jpg")
+            print(self.new_image_path)
+            self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
+            self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
+            self.Form3.pixmapitem.setPos(0, 0)
 
-                self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
-                new_image = QtGui.QPixmap ("Protocolo2\E1_F2.png")
-                print(self.new_image_path)
-                self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
-                self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
-                self.Form3.pixmapitem2.setPos(0, 0)
-            elif self.names[2] ==  "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-S-100.JPG" and self.names[3]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/cerebro-L-100.JPG" and self.names[0] == "D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/S_100_30_M.JPG" and self.names[1]=="D:/alana/Documents/Desarrollo_Dispositivos_Medicos/Perfilometr-a_BI3001B.503/Protocolo/L_N_100_30.JPG":
-                print("Parte2")
-                self.Form3.scene.removeItem(self.Form3.pixmapitem)
-                new_image = QtGui.QPixmap("Protocolo2\Cerebro1.png")
-                print(self.new_image_path)
-                self.Form3.scene.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget2.width(), self.Form3.horizontalLayoutWidget2.height())
-                self.Form3.pixmapitem = self.Form3.scene.addPixmap(new_image.scaled(self.Form3.scene.sceneRect().size().toSize()))
-                self.Form3.pixmapitem.setPos(0, 0)
+            # imagen 2
+            self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
+            new_image = QtGui.QPixmap ("Resultados/analisis2F.jpg")
+            print(self.new_image_path)
+            self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
+            self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
+            self.Form3.pixmapitem2.setPos(0, 0)
 
-                self.Form3.scene2.removeItem(self.Form3.pixmapitem2)
-                new_image = QtGui.QPixmap ("Protocolo2\Cerebro2.png")
-                print(self.new_image_path)
-                self.Form3.scene2.setSceneRect(0, 0, self.Form3.horizontalLayoutWidget3.width(), self.Form3.horizontalLayoutWidget3.height())
-                self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
-                self.Form3.pixmapitem2.setPos(0, 0)
-            self.show_Ui_MainW_Form()
+        self.show_Ui_MainW_Form()
 
 
 
