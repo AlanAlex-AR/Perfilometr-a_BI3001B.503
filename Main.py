@@ -31,14 +31,14 @@ from PyQt_Windows.Registro_SignUp import Ui_Register_Form
 from PyQt_Windows.Upload import Ui_Upload_Form
 from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
-from Base_procesamiento import 
+from Base_procesamiento import process
 #from int
 
 ## Final de Import's del Usario
 class MainForm(QtWidgets.QMainWindow):
     def __init__(self, *arg, **kwargs):
         super().__init__(*arg, **kwargs)
-        self.setWindowTitle("FABIAN ES PUTO")
+        self.setWindowTitle("Inició")
         MainForm.resize(self, 1440, 900)
         # Control variables
         self.imageType = None
@@ -46,7 +46,7 @@ class MainForm(QtWidgets.QMainWindow):
         self.case = None
         self.imageangle = None
         self.tramp = 1
-        self.fabian = 0
+        self.fabian = 1
 
         # Creamos un QHBoxLayout
         self.stacked_widget = QtWidgets.QStackedLayout(self)
@@ -308,8 +308,8 @@ class MainForm(QtWidgets.QMainWindow):
                     self.Form3.pixmapitem2 = self.Form3.scene2.addPixmap(new_image.scaled(self.Form3.scene2.sceneRect().size().toSize()))
                     self.Form3.pixmapitem2.setPos(0, 0)
         else:
-            #self.Procesamiento()
-            #self.proccesamiento = pokemon()
+            self.process = process()
+            self.process() 
             #self.procesamiento.sec
             # imagen 1 
             self.Form3.scene.removeItem(self.Form3.pixmapitem)
