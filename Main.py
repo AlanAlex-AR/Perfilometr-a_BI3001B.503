@@ -32,6 +32,10 @@ from PyQt_Windows.Upload import Ui_Upload_Form
 from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
 from Base_procesamiento import process
+<<<<<<< HEAD
+=======
+Area= 2500
+>>>>>>> 625d6984229159212c905d68dc77c6bed908df5c
 #from int
 
 ## Final de Import's del Usario
@@ -311,6 +315,7 @@ class MainForm(QtWidgets.QMainWindow):
             self.process = process()
             self.process() 
             #self.procesamiento.sec
+            
             # imagen 1 
             self.Form3.scene.removeItem(self.Form3.pixmapitem)
             new_image = QtGui.QPixmap("Resultados/analisis1F.jpg")
