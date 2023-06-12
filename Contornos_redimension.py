@@ -60,9 +60,9 @@ def Contornos(img):
     #plt.title("Máscara del objeto")
     #plt.show()
 
-    plt.imshow(result)
-    plt.title("Objeto Aislado")
-    plt.show()
+    #plt.imshow(result)
+    #plt.title("Objeto Aislado")
+    #plt.show()
     return result
 
 

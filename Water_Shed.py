@@ -62,9 +62,9 @@ def Water_shed(img,MM,Ais,T):
 
     img[markers == 1] = [0,0,0]
 
-    plt.imshow(img,cmap = "gray")
-    plt.title("Objetivo Aislado")
-    plt.show() 
+    #plt.imshow(img,cmap = "gray")
+    #plt.title("Objetivo Aislado")
+    #plt.show() 
     
 
     return img

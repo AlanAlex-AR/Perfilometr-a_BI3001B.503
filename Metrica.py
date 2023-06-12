@@ -61,10 +61,10 @@ def Met(Obj,Ref,Ind,OBJ,REF,Area):
     rmse = np.sqrt(mse)
     print ("RMSE", rmse)
 
-    plt.imshow(Comparativo, cmap='gray')
-    plt.title("Estimación de los puntos de contacto")
-    plt.show()
-    return Obj
+    #plt.imshow(Comparativo, cmap='gray')
+    #plt.title("Estimación de los puntos de contacto")
+    #plt.show()
+    return Comparativo
 
     
 

@@ -39,25 +39,25 @@ def Graph(img):
     altura = gray1 
 
     #Crear la figura y los ejes 3D
-    fig = plt.figure()
-    ax = fig.add_subplot(111, projection='3d')
+    #fig = plt.figure()
+    #ax = fig.add_subplot(111, projection='3d')
 
     # Graficar el objeto 3D
-    ax.plot_surface(X, Y, altura, cmap='rainbow', linewidth=0)
+    #ax.plot_surface(X, Y, altura, cmap='rainbow', linewidth=0)
 
     # Configurar los límites de los ejes
-    ax.set_xlim([0, ancho1 - 1])
-    ax.set_ylim([0, alto1 - 1])
-    ax.set_zlim([0, 255*0.25])  # Intervalo de intensidad, ajusta según tus necesidades
-    ax.set_xlabel("Eje x (mm)")
-    ax.set_ylabel("Eje y (mm)")
-    ax.set_zlabel("Eje z (mm)")
+    #ax.set_xlim([0, ancho1 - 1])
+    #ax.set_ylim([0, alto1 - 1])
+    #ax.set_zlim([0, 255*0.25])  # Intervalo de intensidad, ajusta según tus necesidades
+    #ax.set_xlabel("Eje x (mm)")
+    #ax.set_ylabel("Eje y (mm)")
+    #ax.set_zlabel("Eje z (mm)")
 
     
 
     # Mostrar el gráfico
     
-    plt.show()
+    #plt.show()
 
     NORM=gray*Factor
     # Asegurarse de que los valores estén en el rango correcto [0, 255]
@@ -66,8 +66,8 @@ def Graph(img):
     # Convertir la imagen de vuelta a tipo entero
     NORM = NORM.astype(np.uint8)
  
-    plt.imshow(NORM,cmap='rainbow')
-    plt.title("Mapa de calor de alturas/relieves")
-    plt.colorbar()
-    plt.show()
+    #plt.imshow(NORM,cmap='rainbow')
+    #plt.title("Mapa de calor de alturas/relieves")
+    #plt.colorbar()
+    #plt.show()
     return NORM

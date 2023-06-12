@@ -32,6 +32,7 @@ from PyQt_Windows.Upload import Ui_Upload_Form
 from PyQt_Windows.ImageUpload import Ui_imageUpload_Form
 from PyQt_Windows.window_ctrl import control_Funtion
 #from int
+
 ## Final de Import's del Usario
 class MainForm(QtWidgets.QMainWindow):
     def __init__(self, *arg, **kwargs):
