@@ -22,7 +22,13 @@ import Metrica
 import Rugosidades
 import PP_prueba
 
-def process(self, Ref,img, Area):
+def process(self, Ref_path,img_path, Area):
+    Input_general= "C:/Users/fabia/Downloads/Procesamiento de imagenes\Perfilometr-a_BI3001B.503/superior"
+    path_ref= Input_general + "/" + Ref_path
+    path_img= Input_general + "/" + img_path
+    ref= cv.imread(path_ref)
+    img= cv.imread(path_img)
+
     #Lectura de la imagen superior
     #No=3   #Numero de imagen de la carpeta 
     #img = IM.lectura(No)    
