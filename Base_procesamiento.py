@@ -22,13 +22,13 @@ import Metrica
 import Rugosidades
 import PP_prueba
 
-def process(self):
+def process(self, Ref,img, Area):
     #Lectura de la imagen superior
-    No=3   #Numero de imagen de la carpeta 
-    img = IM.lectura(No)    
-    Noo=0  #Numero de la imagen de referencia en la carpeta
-    Ref= IM.lectura(Noo)
-    Area=2500  #Area del objeto a analizar en mm^2
+    #No=3   #Numero de imagen de la carpeta 
+    #img = IM.lectura(No)    
+    #Noo=0  #Numero de la imagen de referencia en la carpeta
+    #Ref= IM.lectura(Noo)
+    #Area=2500  #Area del objeto a analizar en mm^2
 
 
     #Aislamiento del objeto principal (Cerebro)
