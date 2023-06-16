@@ -22,19 +22,19 @@ import Metrica
 import Rugosidades
 import PP_prueba
 
-def process(Ref_path,img_path, Area):
-    Input_general= "C:/Users/fabia/Downloads/Procesamiento de imagenes\Perfilometr-a_BI3001B.503/superior"
-    path_ref= Input_general + "/" + Ref_path
-    path_img= Input_general + "/" + img_path
-    ref= cv.imread(path_ref)
-    img= cv.imread(path_img)
+def process():
+    #Input_general= "C:/Users/fabia/Downloads/Procesamiento de imagenes\Perfilometr-a_BI3001B.503/superior"
+    #path_ref= Input_general + "/" + Ref_path
+    #path_img= Input_general + "/" + img_path
+    #ref= cv.imread(path_ref)
+    #img= cv.imread(path_img)
 
     #Lectura de la imagen superior
-    #No=3   #Numero de imagen de la carpeta 
-    #img = IM.lectura(No)    
-    #Noo=0  #Numero de la imagen de referencia en la carpeta
-    #Ref= IM.lectura(Noo)
-    #Area=2500  #Area del objeto a analizar en mm^2
+    No=2   #Numero de imagen de la carpeta 
+    img = IM.lectura(No)    
+    Noo=0  #Numero de la imagen de referencia en la carpeta
+    Ref= IM.lectura(Noo)
+    Area=2500  #Area del objeto a analizar en mm^2
 
 
     #Aislamiento del objeto principal (Cerebro)
@@ -47,7 +47,7 @@ def process(Ref_path,img_path, Area):
     #Obtener 2 treshold
     ret, PP = cv.threshold(Parcial, 0,255,cv.THRESH_TOZERO+cv.THRESH_OTSU) #0,255,cv.THRESH_BINARY_INV+cv.THRESH_OTSU)
     print(ret)
-    ret= ret*2.0
+    ret= ret*2
 
     #Objetivo secundario aislado
     Final= WS.Water_shed(img, img, Objetivo1,ret)
@@ -114,3 +114,4 @@ def process(Ref_path,img_path, Area):
     plt.show()
     """""
 
+process()
